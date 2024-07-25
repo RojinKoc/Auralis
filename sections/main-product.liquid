@@ -243,7 +243,15 @@
                     | item_count_for_variant: product.selected_or_first_available_variant.id
                   -%}
                   {% # theme-check-enable %}
-                  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                  <div class="product-form__input product-form__quantity">
+                    <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}
+                    </label>
+                    <input type="range" id="Quantity-{{ section.id }}" name="quantity" class="quantity__input" min="1" max="{{ product.selected_or_first_available_variant.inventory_quantity }}" value="1" oninput="document.getElementById('quantity-value-{{ section.id }}').innerHTML = this.value">
+                    <span id="quantity-value-{{ section.id }}">1</span>
+                  </div>
+                  
+                 {% comment %}  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                     <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
                       {%- render 'loading-spinner' -%}
@@ -284,7 +292,7 @@
                         </span>
                         {% render 'icon-plus' %}
                       </button>
-                    </quantity-input>
+                    </quantity-input> {% endcomment %}
                     {%- liquid
                       assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
                       assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
