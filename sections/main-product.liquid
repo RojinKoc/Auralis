@@ -251,6 +251,8 @@
                     <span id="quantity-value-{{ section.id }}">1</span>
                   </div>
                   
+                  <p>Stok Miktarı: {{ product.selected_or_first_available_variant.inventory_quantity }}</p>
+                  
                   <script>
                     document.addEventListener('DOMContentLoaded', function() {
                       var rangeInput = document.getElementById('Quantity-{{ section.id }}');
@@ -264,6 +266,7 @@
                       rangeValue.innerHTML = rangeInput.value;
                     });
                   </script>
+                  
                   
                   
                  {% comment %}  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
