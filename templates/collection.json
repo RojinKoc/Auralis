@@ -34,22 +34,3 @@
         "product-grid"
     ]
 }
-
-[
-    {
-      "name": "Collection Page Settings",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "hide_out_of_stock",
-          "label": "Stokta Olmayanları Gösterme"
-        },
-        {
-          "type": "checkbox",
-          "id": "sort_out_of_stock_to_end",
-          "label": "Stokta Olmayanları Sonda Göster"
-        }
-      ]
-    }
-]
-  
