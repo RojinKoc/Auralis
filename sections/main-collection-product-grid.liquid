@@ -95,6 +95,25 @@
       </facet-filters-form>
     {%- endif -%}
 
+    {% assign in_stock_products = '' | split: ',' %}
+    {% assign out_of_stock_products = '' | split: ',' %}
+
+    {% for product in collection.products %}
+      {% if product.available %}
+        {% assign in_stock_products = in_stock_products | push: product %}
+      {% else %}
+        {% assign out_of_stock_products = out_of_stock_products | push: product %}
+      {% endif %}
+    {% endfor %}
+
+    {% if section.settings.hide_out_of_stock %}
+      {% assign products_to_show = in_stock_products %}
+    {% elsif section.settings.sort_out_of_stock_to_end %}
+      {% assign products_to_show = in_stock_products | concat: out_of_stock_products %}
+    {% else %}
+      {% assign products_to_show = collection.products %}
+    {% endif %}
+
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -151,7 +170,7 @@
               "
             >
               {% assign skip_card_product_styles = false %}
-              {%- for product in collection.products -%}
+              {%- for product in products_to_show -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
@@ -409,6 +428,18 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_out_of_stock",
+      "default": false,
+      "label": "Hide Out of Stock"
+    },
+    {
+      "type": "checkbox",
+      "id": "sort_out_of_stock_to_end",
+      "default": false,
+      "label": "Sort Out of Stock to End"
     }
   ]
 }
