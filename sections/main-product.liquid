@@ -747,6 +747,24 @@
     </script>
   </div>
 </product-info>
+<script>
+  function updateButton(){
+    const buttons = document.querySelectorAll(".product-form_input input");
+    buttons.forEach(button =>{
+      button.addEventListener('click',()=>{
+        console.log('Button clicked:', button);
+        updateQuantityDisplay();
+      });
+    });
+  }
+  function updateQuantityDisplay(value){
+    var displayElement = document.getElementById('guantity-display-{{ section.id }}');
+    displayElement.textContent=value;
+    console.log(displayElement);
+    console.log(value);
+  }
+  updateButton();
+</script>
 
 {% schema %}
 {
