@@ -735,23 +735,13 @@
   </div>
 </product-info>
 <script>
-  function updateButton(){
-    const buttons = document.querySelectorAll(".product-form_input input");
-    buttons.forEach(button =>{
-      button.addEventListener('click',()=>{
-        console.log('Button clicked:', button);
-        updateQuantityDisplay();
-      });
-    });
+  function updateQuantityDisplay(value) {
+      var displayElement = document.getElementById('quantity-display-{{ section.id }}');
+      displayElement.textContent = value;
+      // You can add additional logic here to handle changes in the quantity
+      // For example, updating the cart quantity or recalculating prices
   }
-  function updateQuantityDisplay(value){
-    var displayElement = document.getElementById('guantity-display-{{ section.id }}');
-    displayElement.textContent=value;
-    console.log(displayElement);
-    console.log(value);
-  }
-  updateButton();
-</script>
+  </script>
 
 {% schema %}
 {
