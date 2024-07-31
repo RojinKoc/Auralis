@@ -251,28 +251,15 @@
                     type="range"
                     id="Quantity-{{ section.id }}"
                     name="quantity"
-                    class="quantity__input"
+                    class="quantity__slider"
                     min="1"
                     max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
                     value="1"
-                    oninput="document.getElementById('quantity-value-{{ section.id }}').innerHTML = this.value"
+                    oninput="updateQuantityDisplay(this.value)"
                   >
-                  <span id="quantity-value-{{ section.id }}">1</span>
+                  <span id="quantity-display-{{ section.id }}">1</span>
                 </div>
 
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-                    var rangeInput = document.getElementById('Quantity-{{ section.id }}');
-                    var rangeValue = document.getElementById('quantity-value-{{ section.id }}');
-
-                    rangeInput.addEventListener('input', function () {
-                      rangeValue.innerHTML = this.value;
-                    });
-
-                    // Başlangıçta göstergeyi güncelle
-                    rangeValue.innerHTML = rangeInput.value;
-                  });
-                </script>
 
                 {% comment %}
                   <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
