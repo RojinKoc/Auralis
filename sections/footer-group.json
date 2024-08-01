@@ -18,14 +18,14 @@
           "type": "link_list",
           "settings": {
             "heading": "MÜŞTERİ HİZMETLERİ",
-            "menu": "footer"
+            "menu": "m-teri-hizmetleri"
           }
         },
         "link_list_zVnbXg": {
           "type": "link_list",
           "settings": {
             "heading": "AURALİS",
-            "menu": "footer"
+            "menu": "auralis"
           }
         }
       },
