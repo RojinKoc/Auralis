@@ -260,15 +260,6 @@
                   <span id="quantity-display-{{ section.id }}">1</span>
                 </div>
 
-                <select id="variant-select">
-                  {% for variant in product.variants %}
-                    <option value="{{ variant.id }}">{{ variant.title }}</option>
-                  {% endfor %}
-                </select>
-                
-                <p>Stok: <span id="stock-quantity">{{ product.selected_or_first_available_variant.inventory_quantity }}</span></p>
-                
-
 
                 {% comment %}
                   <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
