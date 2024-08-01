@@ -49,3 +49,13 @@ document.addEventListener('shopify:inspector:deactivate', () => hideProductModal
 let inventoryHash = document.querySelectorAll('[inventorymanagment]');
 debugger;
 
+let inventoryHash = document.querySelectorAll('[inventorymanagment]');
+debugger;
+
+Array.from(inventoryHash).forEach((Selectedvariant) => {
+  if (Selectedvariant.dataset.id == variant.id) {
+    // Burada ilgili varyasyon için yapılacak işlemler yer alır
+  }
+});
+
+
