@@ -3567,10 +3567,3 @@ details-disclosure > details {
   }
 }
 
-section-slideshow-v6 .slide-content {
-  position: absolute;
-  top: 73% !important;
-  left: 8% !important;
-  transform: translateY(-50%);
-}
-
