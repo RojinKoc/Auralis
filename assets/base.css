@@ -3567,12 +3567,3 @@ details-disclosure > details {
   }
 }
 
-.product-form {
-  display: flex;
-  justify-content: flex-end; /* Butonu sağa taşır */
-  align-items: center;
-}
-
-.product-form .btn {
-  margin-left: 20px; /* Görsel ve buton arasında boşluk bırakır */
-}
