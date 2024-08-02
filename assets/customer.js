@@ -83,3 +83,25 @@ class CustomerAddresses {
     }
   };
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  var variantSelect = document.getElementById("variant-select");
+  var stockQuantity = document.getElementById("stock-quantity");
+
+  variantSelect.addEventListener("change", function () {
+    var selectedVariantId = this.value;
+
+    fetch(`/products/${Shopify.handle}.js`)
+      .then((response) => response.json())
+      .then((data) => {
+        var selectedVariant = data.variants.find(
+          (variant) => variant.id == selectedVariantId
+        );
+
+        if (selectedVariant) {
+          stockQuantity.innerText = selectedVariant.inventory_quantity;
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+  });
+});
