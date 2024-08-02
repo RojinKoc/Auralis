@@ -357,5 +357,30 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    <style>
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs {
+          display: flex;
+          flex-direction: column;
+      }
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs > div {
+          order: 0;
+      }
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs > .pg__short-desc {
+          order: 2;
+      }
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs > forrm.product-form {
+          order: 1;
+      }
+      
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs > div.product-single__sub {
+          order: 4;
+      }
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs > div.product-single__sub-info {
+          order: 3;
+      }
+      .product-single.pg.product-single-layout2 .gutter-ele-top-tbs > hr {
+          order: 3;
+      }
+  </style>
   </body>
 </html>
