@@ -3567,3 +3567,28 @@ details-disclosure > details {
   }
 }
 
+.product-form {
+  display: flex;
+  justify-content: flex-end; /* Butonları sağa hizalar */
+  align-items: center; /* Butonları dikey olarak ortalar */
+}
+
+.product-form .btn {
+  margin-left: 20px; /* Butonlar arasında boşluk bırakır */
+  min-width: 150px; /* Buton genişliğini ayarlar, ihtiyacınıza göre değiştirebilirsiniz */
+}
+
+.product-container {
+  display: flex;
+  justify-content: space-between; /* Görseller ve form arasında alan bırakır */
+  align-items: flex-start; /* Üstten hizalar */
+}
+
+.product-images {
+  flex: 1; /* Görsellerin genişliğini kontrol eder */
+}
+
+.product-details {
+  flex: 1; /* Ürün detaylarının genişliğini kontrol eder */
+}
+
