@@ -91,7 +91,7 @@
       {% endif %}
       {{ input_dataset }}
     >
-    <label for="{{ input_id }}">
+    <label class="quantity-label" for="{{ input_id }}" data-quantity="{{ value.variant.inventory_quantity }}">
       {{ value -}}
       {{ label_unavailable }}
     </label>

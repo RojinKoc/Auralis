@@ -3567,3 +3567,28 @@ details-disclosure > details {
   }
 }
 
+.quantity-label{
+  border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
+    background-color: rgb(var(--color-background));
+    color: rgba(var(--color-foreground));
+    border-radius: var(--variant-pills-radius);
+    color: rgb(var(--color-foreground));
+    display: inline-block;
+    margin: .7rem .5rem .2rem 0;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    letter-spacing: .1rem;
+    line-height: 1;
+    text-align: center;
+    transition: border var(--duration-short) ease;
+    cursor: pointer;
+    position: relative;
+}
+.quantity-label:hover {
+  background-color: black;
+    color: white;
+}
+.quantity-label:active{
+  background-color: black;
+    color: white;
+}
