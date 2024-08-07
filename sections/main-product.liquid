@@ -26,89 +26,89 @@
   {%- endif -%}
 
   {%- style -%}
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
+
+        @media screen and (min-width: 750px) {
+          .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+        }
+
+    /* Style for the slider itself */
+    .quantity__slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        margin: 10px;
     }
 
-    @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
+    /* Style for the slider thumb (the draggable part) */
+    .quantity__slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: black;
+        cursor: pointer;
     }
 
-/* Style for the slider itself */
-.quantity__slider {
-    -webkit-appearance: none; 
-    width: 100%; 
-    height: 10px; 
-    background: #ddd; 
-    border-radius: 5px; 
-    outline: none; 
-    border: none;
-    margin: 10px;
-}
+    .quantity__slider::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: black;
+        cursor: pointer;
+    }
 
-/* Style for the slider thumb (the draggable part) */
-.quantity__slider::-webkit-slider-thumb {
-    -webkit-appearance: none; 
-    width: 15px; 
-    height: 15px; 
-    border-radius: 50%; 
-    background: black; 
-    cursor: pointer; 
-}
+    .quantity__slider::-ms-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: black;
+        cursor: pointer;
+    }
 
-.quantity__slider::-moz-range-thumb {
-    width: 15px;
-    height: 15px; 
-    border-radius: 50%; 
-    background: black;
-    cursor: pointer; 
-}
+    /* Style for the range slider track in WebKit browsers */
+    .quantity__slider::-webkit-slider-runnable-track {
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+    }
 
-.quantity__slider::-ms-thumb {
-    width: 20px; 
-    height: 20px; 
-    border-radius: 50%; 
-    background: black; 
-    cursor: pointer; 
-}
+    /* Style for the range slider track in Firefox */
+    .quantity__slider::-moz-range-track {
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+    }
 
-/* Style for the range slider track in WebKit browsers */
-.quantity__slider::-webkit-slider-runnable-track {
-    height: 10px; 
-    background: #ddd; 
-    border-radius: 5px; 
-}
+    /* Style for the range slider track in IE */
+    .quantity__slider::-ms-track {
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+        border: none;
+        background-color: transparent;
+    }
 
-/* Style for the range slider track in Firefox */
-.quantity__slider::-moz-range-track {
-    height: 10px;
-    background: #ddd; 
-    border-radius: 5px; 
-}
+    .quantity__slider::-ms-fill-lower {
+        background: #ddd;
+    }
 
-/* Style for the range slider track in IE */
-.quantity__slider::-ms-track {
-    height: 10px;
-    background: #ddd; 
-    border-radius: 5px; 
-    border: none; 
-    background-color: transparent;
-}
-
-.quantity__slider::-ms-fill-lower {
-    background: #ddd; 
-}
-
-.quantity__slider::-ms-fill-upper {
-    background: #ddd; 
-}
-.quantity span{
-  margin: 10px 15px 10px 0px; 
-}
+    .quantity__slider::-ms-fill-upper {
+        background: #ddd;
+    }
+    .quantity span{
+      margin: 10px 15px 10px 0px;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -177,7 +177,7 @@
                     </h2>
                   </a>
                 </div>
-                {%- when 'description' -%}
+              {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
@@ -273,7 +273,7 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
-              
+
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -312,46 +312,47 @@
                   <label class="form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                   </label>
-  
+
                   <quantity-input class="quantity">
-                         {% comment %}
-                    <button class="quantity__button no-js-hidden" name="minus" type="button">
-                      <span class="visually-hidden">
-                        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                      </span>
-                      {% render 'icon-minus' %}
-                    </button>
-                         {% endcomment %}
-                <input
-                              class="quantity__input"
-                              type="range"
-                              name="quantity"
-                              id="Quantity-{{ section.id }}"
-                              data-cart-quantity="{{ cart_qty }}"
-                              data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                              min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                              {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                                  data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                                  max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                              {% else %}
-                                  data-max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
-                                  max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
-                              {% endif %}
-                              step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                              value="{{ product.selected_or_first_available_variant.quantity_rule.min }}" 
-                              form="{{ product_form_id }}"
-                              oninput="updateQuantityDisplay(this.value)"
-                          >
-                          <span id="quantity-display-{{ section.id }}">{{ product.selected_or_first_available_variant.quantity_rule.min }}</span>
-               {% comment %}
-                    <button class="quantity__button no-js-hidden" name="plus" type="button">
-                      <span class="visually-hidden">
-                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                      </span>
-                      {% render 'icon-plus' %}
-                    </button>
-               {% endcomment %}
-              
+                    {% comment %}
+                      <button class="quantity__button no-js-hidden" name="minus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                        </span>
+                        {% render 'icon-minus' %}
+                      </button>
+                    {% endcomment %}
+                    <input
+                      class="quantity__input"
+                      type="range"
+                      name="quantity"
+                      id="Quantity-{{ section.id }}"
+                      data-cart-quantity="{{ cart_qty }}"
+                      data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                      min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                      {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                        data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                        max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                      {% else %}
+                        data-max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
+                        max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
+                      {% endif %}
+                      step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                      value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                      form="{{ product_form_id }}"
+                      oninput="updateQuantityDisplay(this.value)"
+                    >
+                    <span id="quantity-display-{{ section.id }}">
+                      {{- product.selected_or_first_available_variant.quantity_rule.min -}}
+                    </span>
+                    {% comment %}
+                      <button class="quantity__button no-js-hidden" name="plus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                        </span>
+                        {% render 'icon-plus' %}
+                      </button>
+                    {% endcomment %}
                   </quantity-input>
                 </div>
               {%- when 'popup' -%}
@@ -378,47 +379,54 @@
               {%- when 'variant_picker' -%}
                 {%- unless product.has_only_default_variant -%}
                   {%- if block.settings.picker_type == 'button' -%}
-                  <variant-radios
-    class="no-js-hidden"
-    data-section="{{ section.id }}"
-    data-url="{{ product.url }}"
-    {{ block.shopify_attributes }}
-  >
-    {%- for option in product.options_with_values -%}
-      <fieldset class="js product-form__input">
-        <legend class="form__label">{{ option.name }}</legend>
-        {%- for value in option.values -%}
-          <input
-            type="radio"
-            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-            name="{{ option.name }}"
-            value="{{ value | escape }}"
-            form="{{ product_form_id }}"
-            {% if option.selected_value == value %}
-              checked
-            {% endif %}
-          >
-     
-        
-          {% assign variant_index = forloop.index0  %}
-          {% assign variant = product.variants[variant_index] %}
-           {%  if option.name == "Color" %}
-               p- {{ variant.metafields.custom.colorcus }}
-            <label style="background-color:{{ variant.metafields.custom.colorcus }}" class="quantity-label" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" data-quantity="{{ variant.inventory_quantity }}">
-          </label>
-           {%  endif %}
-          <label class="quantity-label" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" data-quantity="{{ variant.inventory_quantity }}">
-            {{ value }}
-          </label>
-        {%- endfor -%}
-      </fieldset>
-    {%- endfor -%}
-    <script type="application/json">
-      {{ product.variants | json }}
-    </script>
-                  
-  </variant-radios>
-  
+                    <variant-radios
+                      class="no-js-hidden"
+                      data-section="{{ section.id }}"
+                      data-url="{{ product.url }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {%- for option in product.options_with_values -%}
+                        <fieldset class="js product-form__input">
+                          <legend class="form__label">{{ option.name }}</legend>
+                          {%- for value in option.values -%}
+                            <input
+                              type="radio"
+                              id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                              name="{{ option.name }}"
+                              value="{{ value | escape }}"
+                              form="{{ product_form_id }}"
+                              {% if option.selected_value == value %}
+                                checked
+                              {% endif %}
+                            >
+
+                            {% assign variant_index = forloop.index0 %}
+                            {% assign variant = product.variants[variant_index] %}
+                            {% if option.name == 'Color' %}
+                              p- {{ variant.metafields.custom.colorcus }}
+                              <label
+                                style="background-color:{{ variant.metafields.custom.colorcus }}"
+                                class="quantity-label"
+                                for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                data-quantity="{{ variant.inventory_quantity }}"
+                              >
+                              </label>
+                            {% endif %}
+                            <label
+                              class="quantity-label"
+                              for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                              data-quantity="{{ variant.inventory_quantity }}"
+                            >
+                              {{ value }}
+                            </label>
+                          {%- endfor -%}
+                        </fieldset>
+                      {%- endfor -%}
+                      <script type="application/json">
+                        {{ product.variants | json }}
+                      </script>
+                    </variant-radios>
+
                   {%- else -%}
                     <variant-selects
                       class="no-js-hidden"
@@ -453,14 +461,14 @@
                           </div>
                         </div>
                       {%- endfor -%}
-  
+
                       <script type="application/json">
                         {{ product.variants | json }}
                       </script>
                     </variant-selects>
                   {%- endif -%}
                 {%- endunless -%}
-  
+
                 <noscript class="product-form__noscript-wrapper-{{ section.id }}">
                   <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
                     <label class="form__label" for="Variants-{{ section.id }}">
@@ -750,22 +758,21 @@
   </div>
 </product-info>
 <script>
-  const label = document.querySelectorAll(".quantity-label");
-  const quantity__input=document.querySelector(".quantity__input");
+  const label = document.querySelectorAll('.quantity-label');
+  const quantity__input = document.querySelector('.quantity__input');
   const quantityDisplay = document.getElementById('quantity-display-{{ section.id }}');
-  label.forEach(e => {
-    e.addEventListener("click", (e)=>{
-      console.log("quantity__input",quantity__input);
-          quantity__input.value=1;
-           quantityDisplay.textContent = 1;
-          quantity__input.setAttribute("max",e.target.dataset.quantity);
-      
+  label.forEach((e) => {
+    e.addEventListener('click', (e) => {
+      console.log('quantity__input', quantity__input);
+      quantity__input.value = 1;
+      quantityDisplay.textContent = 1;
+      quantity__input.setAttribute('max', e.target.dataset.quantity);
     });
   });
   function updateQuantityDisplay(value) {
-  quantityDisplay.textContent = value;
-  console.log('Quantity Display:', value);
-}
+    quantityDisplay.textContent = value;
+    console.log('Quantity Display:', value);
+  }
 </script>
 
 {% schema %}
