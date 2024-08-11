@@ -20,8 +20,8 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "hide_out_of_stock": true,
-        "move_out_of_stock_to_end": false,
+        "hide_out_of_stock": false,
+        "move_out_of_stock_to_end": true,
         "products_per_page": 16,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
