@@ -88,6 +88,9 @@
     },
     "related-products": {
       "type": "related-products",
+      "custom_css": [
+        "h2{font-size: 26px}"
+      ],
       "settings": {
         "heading": "ŞUNLARI DA BEĞENEBİLİRSİNİZ",
         "heading_size": "h2",
