@@ -396,8 +396,8 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".product__title h1 {font-size: 26px;}",
-      ".product__description p {font-size: 15px;}"
+      ".product__title h1 {font-size: 30px;}",
+      ".product__description p {font-size: 20px;}"
     ]
   }
 }
