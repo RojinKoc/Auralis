@@ -3592,13 +3592,3 @@ details-disclosure > details {
   background-color: black !important;
     color: white !important;
 }
-@media screen and (max-width: 749px) {
-  .banner__media {
-    height: 700px;
-  }
-}
-@media screen and (min-width: 749px) {
-  .banner {
-    height: 1500px;
-  }
-}
