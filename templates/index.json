@@ -35,6 +35,9 @@
         "heading",
         "button"
       ],
+      "custom_css": [
+
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/woman-in-fur-under-neon.jpg",
         "image_overlay_opacity": 40,
