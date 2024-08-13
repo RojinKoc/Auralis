@@ -58,7 +58,7 @@
     "collection_card_text_alignment": "left",
     "collection_card_color_scheme": "scheme-2",
     "collection_card_border_thickness": 0,
-    "collection_card_border_opacity": 10,
+    "collection_card_border_opacity": 100,
     "collection_card_corner_radius": 0,
     "collection_card_shadow_opacity": 0,
     "collection_card_shadow_horizontal_offset": 0,
@@ -397,7 +397,8 @@
   "platform_customizations": {
     "custom_css": [
       ".product__title h1 {font-size: 30px;}",
-      ".product__description p {font-size: 20px;}"
+      ".product__description p {font-size: 20px;}",
+      ".product__variant {}"
     ]
   }
 }

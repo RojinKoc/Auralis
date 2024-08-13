@@ -36,6 +36,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
@@ -89,7 +90,7 @@
     "related-products": {
       "type": "related-products",
       "custom_css": [
-        "h2{font-size: 26px}"
+        "h2 {font-size: 26px;}"
       ],
       "settings": {
         "heading": "ŞUNLARI DA BEĞENEBİLİRSİNİZ",
