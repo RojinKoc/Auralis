@@ -152,7 +152,7 @@
               {% assign in_stock_products = "" %}
               {% assign out_of_stock_products = "" %}
               
-              {%- for product in collection.products -%}
+              {%- for product in  collection.products -%}
                 {% if product.available %}
                   {% capture in_stock_product %}
                     <li
