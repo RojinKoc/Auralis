@@ -19,7 +19,7 @@
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
-    "animations_reveal_on_scroll": true,
+    "animations_reveal_on_scroll": false,
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
@@ -398,7 +398,7 @@
     "custom_css": [
       ".product__title h1 {font-size: 30px;}",
       ".product__description p {font-size: 20px;}",
-      ".product__variant {}"
+      "@media screen and (max-width: 749px) {.banner__media {height: 120vw; }}"
     ]
   }
 }
