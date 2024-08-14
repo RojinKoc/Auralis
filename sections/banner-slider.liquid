@@ -1,6 +1,109 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<style>
+  .slider{
+  position: relative;
+  weidth: 100vw;
+  height: 100vw;
+  overflow:hidden;
+}
+.slide{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+.active{
+  opacity: 1;
+}
+.slide img {
+  width: 100vW;
+  height: 100vH;
+  object-fit: cover;
+}
+.indicators{
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  cursor:default;
+}
+.indicators button{
+  padding: 10px 20px;
+  font-size: 25px;
+  backgroud-color:grey;
+  color:black;
+  border:none;
+}
+
+</style>
+<script>
+const slides= document.querySelectorAll('.slide');
+const next= document.getElementById('next');
+const prev=document.getElementById('prev');
+
+const nextSlide=() => {
+  const activeSlide= document.querySelector('.active');
+  activeSlide.classList.remove('active');
+  
+  if(activeSlide.nextElementSibling){
+    activeSlide.nextElementSibling.classList.add('active');
+  }else{
+    slides[0].classList.add('active');
   }
+}
+const prevSlide=() => {
+  const activeSlide= document.querySelector('.active');
+  activeSlide.classList.remove('active');
+  
+  if(activeSlide.previousElementSibling){
+    activeSlide.previousElementSibling.classList.add('active');
+  }else{
+    slides[slides.length-1].classList.add('active');
+  }
+}
+next.addEventListener('click',() => {
+  nextSlide();
+});
+prev.addEventListener('click',() => {
+  prevSlide();
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "Swiper",
+  "class": "slideshow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+          {
+           "type": "text",
+           "id": "text",
+           "label": "Text"
+         }
+       ]
+     }
+   ],
+  "presets": [
+    {
+      "name": "Swiper"
+    }
+  ]
+}
 {% endschema %}
