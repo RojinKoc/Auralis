@@ -1,12 +1,41 @@
+{% schema %}
+{
+  "name": "Image Slider",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "slide_1",
+      "label": "Slide 1 Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_2",
+      "label": "Slide 2 Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_3",
+      "label": "Slide 3 Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
 <div class="slider">
   <div class="slide active">
-    <img src="{{ 'fonz1.png' | asset_url }}" alt="banner1">
+    <img src="{{ settings.slide_1 | img_url: 'master' }}" alt="banner1">
   </div>
   <div class="slide">
-    <img src="{{ 'fonz2.png' | asset_url }}" alt="banner2">
+    <img src="{{ settings.slide_2 | img_url: 'master' }}" alt="banner2">
   </div>
   <div class="slide">
-    <img src="{{ 'fonz1.png' | asset_url }}" alt="banner3">
+    <img src="{{ settings.slide_3 | img_url: 'master' }}" alt="banner3">
   </div>
 </div>
 <div class="indicators">
@@ -93,31 +122,3 @@
     prevSlide();
   });
 </script>
-{% schema %}
-{
-  "name": "Image Slider",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "slide_1",
-      "label": "Slide 1 Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide_2",
-      "label": "Slide 2 Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide_3",
-      "label": "Slide 3 Image"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Custom"
-    }
-  ]
-}
-{% endschema %}
