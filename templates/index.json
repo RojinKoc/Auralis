@@ -9,6 +9,32 @@
 */
 {
   "sections": {
+    "banner_slider_xtkHix": {
+      "type": "banner-slider",
+      "blocks": {
+        "slide_kVGeTn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gap_Banner.jpg",
+            "text": ""
+          }
+        },
+        "slide_e7pfU4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/13b2bc8c-12fa-4ed1-9467-f3818077d213.jpg",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_kVGeTn",
+        "slide_e7pfU4"
+      ],
+      "settings": {
+        "title": "Banner"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -82,6 +108,7 @@
     }
   },
   "order": [
+    "banner_slider_xtkHix",
     "image_banner",
     "featured_collection"
   ]
