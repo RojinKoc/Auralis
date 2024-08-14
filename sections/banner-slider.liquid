@@ -1,75 +1,166 @@
 <style>
-  .slider{
-  position: relative;
-  weidth: 100vw;
-  height: 100vw;
-  overflow:hidden;
-}
-.slide{
-  position:absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity .2s linear;
-}
-.active{
-  opacity: 1;
-}
-.slide img {
-  width: 100vW;
-  height: 100vH;
-  object-fit: cover;
-}
-.indicators{
-  position: absolute;
-  bottom:20px;
-  right:20px;
-  cursor:default;
-}
-.indicators button{
-  padding: 10px 20px;
-  font-size: 25px;
-  backgroud-color:grey;
-  color:black;
-  border:none;
-}
+  .swiper-button-next,
+  .swiper-button-prev{
+    color: black !important;
+    background: #ffffffbd !important;
+    padding: 25px !important;
+    border-radius: 40px !important;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after{
+    font-size: x-large !important;
+  }
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    top: 97% !important;
+  }
+  .swiper{
+    padding: 25px !important;
+  }
+  :root{
+    --swiper-theme-color: black !important;
+  }
+  :root {
+    --swiper-theme-color : #000000
+  }
 
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    list-style-type: none;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    font-size: 100%;
+    box-sizing: inherit;
+    scroll-behavior: smooth;
+    height: -webkit-fill-available;
+  }
+
+  body {
+    font-family: "Rubik", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--black-500);
+    background-color: var(--white-100);
+  }
+
+  main {
+    overflow: hidden;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  .section {
+    margin: 0 auto;
+    padding-block: 5rem;
+  }
+
+  .container {
+    max-width: 75rem;
+    height: auto;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .swiper {
+    &-button-next::after,
+    &-button-prev::after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 1rem;
+      width: 2rem;
+      height: 2rem;
+      opacity: 0.75;
+      border-radius: 100%;
+      color: var(--white-100);
+      background: var(--black-300);
+    }
+  }
 </style>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<div class="page-width slider-column">
+  <div class="swiper swiper-slider">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <span class="swiper-pagination"></span>
+    <span class="swiper-button-prev"></span>
+    <span class="swiper-button-next"></span>
+  </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-const slides= document.querySelectorAll('.slide');
-const next= document.getElementById('next');
-const prev=document.getElementById('prev');
-
-const nextSlide=() => {
-  const activeSlide= document.querySelector('.active');
-  activeSlide.classList.remove('active');
-  
-  if(activeSlide.nextElementSibling){
-    activeSlide.nextElementSibling.classList.add('active');
-  }else{
-    slides[0].classList.add('active');
-  }
-}
-const prevSlide=() => {
-  const activeSlide= document.querySelector('.active');
-  activeSlide.classList.remove('active');
-  
-  if(activeSlide.previousElementSibling){
-    activeSlide.previousElementSibling.classList.add('active');
-  }else{
-    slides[slides.length-1].classList.add('active');
-  }
-}
-next.addEventListener('click',() => {
-  nextSlide();
-});
-prev.addEventListener('click',() => {
-  prevSlide();
-});
+  const swiper = new Swiper(".swiper-slider", {
+    centeredSlides: true,
+    slidesPerView: 1,
+    grabCursor: true,
+    freeMode: false,
+    loop: true,
+    mousewheel: false,
+    keyboard: {
+      enabled: true
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: false,
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1.25,
+        spaceBetween: 20
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      }
+    }
+  });
 </script>
-
 
 {% schema %}
 {
@@ -92,7 +183,11 @@ prev.addEventListener('click',() => {
            "id": "image",
            "label": "Image"
          },
-          
+         {
+           "type": "text",
+           "id": "text",
+           "label": "Text"
+         }
        ]
      }
    ],
