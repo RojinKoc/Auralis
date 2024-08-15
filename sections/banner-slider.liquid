@@ -58,11 +58,12 @@
       <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
     </div>
   {% endfor %}
+  <div class="indicators">
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
 </div>
-<div class="indicators">
-  <button id="prev">&#10094;</button>
-  <button id="next">&#10095;</button>
-</div>
+
 
 
 <script>
