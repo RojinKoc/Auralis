@@ -2108,7 +2108,7 @@ input[type='checkbox'] {
 }
 
 .utility-bar .list-social__item .icon {
-  scale: 0.9;
+  scale: 1;
 }
 
 @media screen and (min-width: 990px) {
