@@ -52,24 +52,28 @@
 }
 </style>
 
-<div class="swiper">
+<div class="slider">
   {% for block in section.blocks %}
     <div class="slide {% if forloop.first %}active{% endif %}">
       <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
     </div>
   {% endfor %}
-  <div class="indicators">
-  <button id="prev">&#10094;</button>
-  <button id="next">&#10095;</button>
 </div>
-</div>
+
 
 
 <script>
+  // Tüm slaytları seç
   const slides = document.querySelectorAll('.slide');
+
+  // İleri ve geri butonlarını seç
   const next = document.getElementById('next');
   const prev = document.getElementById('prev');
 
+  // İlk slaytı aktif olarak ayarla
+  slides[0].classList.add('active');
+
+  // Sonraki slayta geçiş fonksiyonu
   const nextSlide = () => {
     const activeSlide = document.querySelector('.active');
     activeSlide.classList.remove('active');
@@ -81,6 +85,7 @@
     }
   }
 
+  // Önceki slayta geçiş fonksiyonu
   const prevSlide = () => {
     const activeSlide = document.querySelector('.active');
     activeSlide.classList.remove('active');
@@ -92,6 +97,7 @@
     }
   }
 
+  // Butonlara tıklama olaylarını ekle
   next.addEventListener('click', () => {
     nextSlide();
   });
@@ -100,6 +106,7 @@
     prevSlide();
   });
 </script>
+
 
 {% schema %}
 {
