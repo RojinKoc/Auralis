@@ -52,7 +52,7 @@
 }
 </style>
 
-<div class="slider">
+<div class="swiper">
   {% for block in section.blocks %}
     <div class="slide {% if forloop.first %}active{% endif %}">
       <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
