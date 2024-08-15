@@ -59,47 +59,45 @@
     </div>
   {% endfor %}
   <div class="indicators">
-  <button id="prev">&#10094;</button>
-  <button id="next">&#10095;</button>
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
 </div>
-</div>
+
 
 
 <script>
+  // Tüm slaytları seç
   const slides = document.querySelectorAll('.slide');
-  const next = document.getElementById('next');
-  const prev = document.getElementById('prev');
+  let currentSlideIndex = 0;
 
+  // İlk slaytı aktif olarak ayarla
+  slides[currentSlideIndex].classList.add('active');
+
+  // Slaytı güncelleme fonksiyonu
+  const updateSlide = (newIndex) => {
+    slides[currentSlideIndex].classList.remove('active');
+    currentSlideIndex = newIndex;
+    slides[currentSlideIndex].classList.add('active');
+  };
+
+  // Sonraki slayta geçiş fonksiyonu
   const nextSlide = () => {
-    const activeSlide = document.querySelector('.active');
-    activeSlide.classList.remove('active');
-    
-    if (activeSlide.nextElementSibling) {
-      activeSlide.nextElementSibling.classList.add('active');
-    } else {
-      slides[0].classList.add('active');
-    }
-  }
+    const newIndex = (currentSlideIndex + 1) % slides.length;
+    updateSlide(newIndex);
+  };
 
+  // Önceki slayta geçiş fonksiyonu
   const prevSlide = () => {
-    const activeSlide = document.querySelector('.active');
-    activeSlide.classList.remove('active');
-    
-    if (activeSlide.previousElementSibling) {
-      activeSlide.previousElementSibling.classList.add('active');
-    } else {
-      slides[slides.length - 1].classList.add('active');
-    }
-  }
+    const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    updateSlide(newIndex);
+  };
 
-  next.addEventListener('click', () => {
-    nextSlide();
-  });
-
-  prev.addEventListener('click', () => {
-    prevSlide();
-  });
+  // Butonlara tıklama olaylarını ekle
+  document.getElementById('next').addEventListener('click', nextSlide);
+  document.getElementById('prev').addEventListener('click', prevSlide);
 </script>
+
 
 {% schema %}
 {
