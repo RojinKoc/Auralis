@@ -1,5 +1,5 @@
 <style>
-  .slider {
+  .swiper {
     position: relative;
     width: 100vw;
     height: 100vH;
@@ -47,7 +47,7 @@
   }
 </style>
 
-<div class="slider">
+<div class="swiper">
   {% for block in section.blocks %}
     <div class="slide {% if forloop.first %}active{% endif %}">
       <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
