@@ -109,6 +109,14 @@
   prev.addEventListener('click', () => {
     prevSlide();
   });
+  slides.forEach((slide, index) => {
+  if (index === 0) {
+    slide.classList.add('active');
+  } else {
+    slide.classList.remove('active');
+  }
+});
+
 </script>
 
 
