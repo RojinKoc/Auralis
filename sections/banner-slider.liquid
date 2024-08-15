@@ -42,15 +42,17 @@
   }
 </style>
 
- <div class="slider">
-        {% for block in section.blocks %}
-         <div class="slide">
-           <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
-         </div>
-       {% endfor %}
-      <span class="swiper-button-prev"></span>
-      <span class="swiper-button-next"></span>
-  </div>
+<div class="slider">
+  {% for block in section.blocks %}
+    <div class="slide">
+    <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
+    </div>
+  {% endfor %}
+</div>
+<div class="indicators">
+  <button id="prev">&#10094;</button>
+  <button id="next">&#10095;</button>
+</div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
