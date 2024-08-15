@@ -43,7 +43,6 @@
 </style>
 
  <div class="slider">
-    <div class="slide">
         {% for block in section.blocks %}
          <div class="slide">
            <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
@@ -51,7 +50,6 @@
        {% endfor %}
       <span class="swiper-button-prev"></span>
       <span class="swiper-button-next"></span>
-    </div>
   </div>
 
 <script>
