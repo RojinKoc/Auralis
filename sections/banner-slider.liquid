@@ -31,21 +31,26 @@
     image-rendering: crisp-edges;
   }
 
-  .indicators {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    cursor: default;
-  }
+/* Sağ ve sol ortadaki butonlar */
+.indicators button {
+  position: absolute;
+  top: 50%; /* Butonu dikeyde ortalar */
+  transform: translateY(-50%); /* Dikeyde tam ortalamak için */
+  padding: 10px 20px;
+  font-size: 25px;
+  background-color: grey;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
 
-  .indicators button {
-    padding: 10px 20px;
-    font-size: 25px;
-    background-color: white;
-    color: black;
-    border: none;
-    opacity: 0.60;
-  }
+#prev {
+  left: 20px; /* Sol ortada olacak şekilde yerleştirir */
+}
+
+#next {
+  right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
+}
 </style>
 
 <div class="swiper">
