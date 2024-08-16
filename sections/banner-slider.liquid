@@ -69,6 +69,24 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
     transform: translateY(-50%);
   }
 }
+  /* Pagination dots */
+.pagination-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination-dots button {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: grey; /* Varsayılan renkte gri */
+  border-radius: 50%; /* Yuvarlak yapmak için */
+  border: none;
+  cursor: pointer;
+}
+
+.pagination-dots button.active {
+  background-color: black; /* Aktif slide'ı belirgin yapmak için siyah */
 
 </style>
 
@@ -82,6 +100,7 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
     <button id="prev">&#10094;</button>
     <button id="next">&#10095;</button>
   </div>
+  <div class="pagination-dots"></div> 
 </div>
 
 
@@ -89,10 +108,24 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
 <script>
   // Tüm slaytları seç
   const slides = document.querySelectorAll('.slide');
+  const paginationDotsContainer = document.querySelector('.pagination-dots');
   let currentSlideIndex = 0;
 
   // İlk slaytı aktif olarak ayarla
   slides[currentSlideIndex].classList.add('active');
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('button');
+    if (index === currentSlideIndex) {
+      dot.classList.add('active');
+    }
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+    paginationDotsContainer.appendChild(dot);
+  });
+
+  const paginationDots = document.querySelectorAll('.pagination-dots button');
 
   // Slaytı güncelleme fonksiyonu
   const updateSlide = (newIndex) => {
