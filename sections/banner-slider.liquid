@@ -35,12 +35,34 @@
   position: absolute;
   top: 50%; /* Butonu dikeyde ortalar */
   transform: translateY(-50%);
-  font-size: 40px; /* Butonları büyütme */
   background-color: transparent; /* Arka planı şeffaf yapar */
-  color: black; /* Ok işaretlerinin rengini ayarlar */
-  border: none; /* Kenarlık yok */
+  border: none; /* Butonun kendisinde kenarlık yok */
+  width: 30px; /* Butonun genişliği */
+  height: 30px; /* Butonun yüksekliği */
   cursor: pointer;
-  padding: 5px 10px; /* Butonun çevresinde daha fazla boşluk oluşturur */
+}
+
+#prev::before,
+#next::before {
+  content: '';
+  display: inline-block;
+  width: 15px; /* Ok işaretinin genişliği */
+  height: 15px; /* Ok işaretinin yüksekliği */
+  border-style: solid;
+  border-width: 0 3px 3px 0; /* İnce ve keskin bir ok işareti yapar */
+  padding: 3px;
+}
+
+#prev::before {
+  transform: rotate(135deg); /* Sol ok için döndürme */
+  margin-left: 5px;
+  color: black;
+}
+
+#next::before {
+  transform: rotate(-45deg); /* Sağ ok için döndürme */
+  margin-right: 5px;
+  color: black;
 }
 
 #prev {
@@ -49,25 +71,6 @@
 
 #next {
   right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
-}
-
-/* Butonları ince hale getirmek için ek stil */
-.indicators button::after {
-  content: ''; /* Butona özel bir içerik eklememize gerek yok */
-  display: inline-block;
-  width: 3px; /* İncelik ayarı */
-  height: 40px; /* Yükseklik ayarı */
-  background-color: black; /* İnce çizginin rengi */
-}
-
-#prev::after {
-  transform: rotate(135deg); /* Sol ok için dönüş açısı */
-  margin-right: 10px; /* Ok ile buton metni arasına boşluk */
-}
-
-#next::after {
-  transform: rotate(-45deg); /* Sağ ok için dönüş açısı */
-  margin-left: 10px; /* Ok ile buton metni arasına boşluk */
 }
 
   
