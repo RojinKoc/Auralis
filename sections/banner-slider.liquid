@@ -128,7 +128,7 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
       dot.classList.add('active');
     }
     dot.addEventListener('click', () => {
-      goToSlide(index);
+      updateSlide(index);
     });
     paginationDotsContainer.appendChild(dot);
   });
