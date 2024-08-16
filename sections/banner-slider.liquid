@@ -135,12 +135,16 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
 
   const paginationDots = document.querySelectorAll('.pagination-dots button');
 
-  // Slaytı güncelleme fonksiyonu
   const updateSlide = (newIndex) => {
-    slides[currentSlideIndex].classList.remove('active');
-    currentSlideIndex = newIndex;
-    slides[currentSlideIndex].classList.add('active');
-  };
+  slides[currentSlideIndex].classList.remove('active');
+  paginationDots[currentSlideIndex].classList.remove('active');
+  
+  currentSlideIndex = newIndex;
+
+  slides[currentSlideIndex].classList.add('active');
+  paginationDots[currentSlideIndex].classList.add('active');
+};
+
 
   // Sonraki slayta geçiş fonksiyonu
   const nextSlide = () => {
