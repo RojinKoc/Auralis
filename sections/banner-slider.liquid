@@ -36,26 +36,31 @@
   top: 50%; /* Butonu dikeyde ortalar */
   transform: translateY(-50%);
   background-color: transparent; /* Arka planı şeffaf yapar */
-  color: black; /* Ok işaretlerinin rengini ayarlar */
-  border: none; /* Kenarlık yok */
+  border: none; /* Butonun kenarlığı yok */
+  width: 30px; /* Butonun genişliği */
+  height: 30px; /* Butonun yüksekliği */
   cursor: pointer;
-  font-size: 30px; /* Ok işaretlerini büyütme */
-  font-weight: bold; /* Ok işaretlerinin kalınlığını ayarlar */
-  width: 40px; /* Butonun genişliği */
-  height: 40px; /* Butonun yüksekliği */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0; /* Ekstra boşluğu kaldırır */
+  padding: 0;
 }
 
 #prev {
   left: 20px; /* Sol ortada olacak şekilde yerleştirir */
+  border: solid black; /* Ok işaretini oluşturmak için border kullanıyoruz */
+  border-width: 0 3px 3px 0; /* Sadece sağ ve alt kenar çizgileri görünecek şekilde ayarlanır */
+  transform: rotate(135deg); /* Sol ok oluşturmak için döndürme */
+  width: 15px; /* Ok işaretinin genişliği */
+  height: 15px; /* Ok işaretinin yüksekliği */
 }
 
 #next {
   right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
+  border: solid black; /* Ok işaretini oluşturmak için border kullanıyoruz */
+  border-width: 0 3px 3px 0; /* Sadece sağ ve alt kenar çizgileri görünecek şekilde ayarlanır */
+  transform: rotate(-45deg); /* Sağ ok oluşturmak için döndürme */
+  width: 15px; /* Ok işaretinin genişliği */
+  height: 15px; /* Ok işaretinin yüksekliği */
 }
+
 
   
 /* Mobil cihazlar için özel stiller */
