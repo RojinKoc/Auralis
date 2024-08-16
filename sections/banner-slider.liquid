@@ -31,36 +31,25 @@
     image-rendering: crisp-edges;
   }
 
+/* Sağ ve sol ortadaki butonlar */
 .indicators button {
-  position: absolute;
-  top: 50%; /* Butonu dikeyde ortalar */
-  transform: translateY(-50%);
-  background-color: transparent; /* Arka planı şeffaf yapar */
-  border: none; /* Butonun kenarlığı yok */
-  width: 30px; /* Butonun genişliği */
-  height: 30px; /* Butonun yüksekliği */
-  cursor: pointer;
-  padding: 0;
+position: absolute;
+top: 50%; /* Butonu dikeyde ortalar */
+transform: translateY(-50%); /* Dikeyde tam ortalamak için */
+font-size: 25px;
+background-color: transparent;
+color: black;
+border: none;
+cursor: pointer;
 }
 
 #prev {
-  left: 20px; /* Sol ortada olacak şekilde yerleştirir */
-  border: solid black; /* Ok işaretini oluşturmak için border kullanıyoruz */
-  border-width: 0 3px 3px 0; /* Sadece sağ ve alt kenar çizgileri görünecek şekilde ayarlanır */
-  transform: rotate(135deg); /* Sol ok oluşturmak için döndürme */
-  width: 15px; /* Ok işaretinin genişliği */
-  height: 15px; /* Ok işaretinin yüksekliği */
+left: 20px; /* Sol ortada olacak şekilde yerleştirir */
 }
 
 #next {
-  right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
-  border: solid black; /* Ok işaretini oluşturmak için border kullanıyoruz */
-  border-width: 0 3px 3px 0; /* Sadece sağ ve alt kenar çizgileri görünecek şekilde ayarlanır */
-  transform: rotate(-45deg); /* Sağ ok oluşturmak için döndürme */
-  width: 15px; /* Ok işaretinin genişliği */
-  height: 15px; /* Ok işaretinin yüksekliği */
+right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
 }
-
 
   
 /* Mobil cihazlar için özel stiller */
