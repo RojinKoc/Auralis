@@ -42,35 +42,20 @@
   cursor: pointer;
 }
 
-#prev::before,
-#next::before {
-  content: '';
-  display: inline-block;
-  width: 15px; /* Ok işaretinin genişliği */
-  height: 15px; /* Ok işaretinin yüksekliği */
-  border-style: solid;
-  border-width: 0 3px 3px 0; /* İnce ve keskin bir ok işareti yapar */
-  padding: 3px;
-}
-
-#prev::before {
-  transform: rotate(135deg); /* Sol ok için döndürme */
-  margin-left: 5px;
-  color: black;
-}
-
-#next::before {
-  transform: rotate(-45deg); /* Sağ ok için döndürme */
-  margin-right: 5px;
-  color: black;
-}
-
 #prev {
   left: 20px; /* Sol ortada olacak şekilde yerleştirir */
+  border: solid black; /* Ok işaretini oluşturur */
+  border-width: 0 3px 3px 0; /* İnce ve keskin bir ok işareti yapar */
+  transform: rotate(135deg); /* Sol ok için döndürme */
+  padding: 10px; /* Ok işaretini büyütmek için padding ekler */
 }
 
 #next {
   right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
+  border: solid black; /* Ok işaretini oluşturur */
+  border-width: 0 3px 3px 0; /* İnce ve keskin bir ok işareti yapar */
+  transform: rotate(-45deg); /* Sağ ok için döndürme */
+  padding: 10px; /* Ok işaretini büyütmek için padding ekler */
 }
 
   
