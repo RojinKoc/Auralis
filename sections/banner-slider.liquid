@@ -75,10 +75,18 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
   margin-bottom: 20px;
 }
 
+.pagination-dots {
+  position: absolute;
+  bottom: 20px; /* Resmin altına 20px boşluk bırakır */
+  left: 50%;
+  transform: translateX(-50%); /* Sol ve sağ ortalama */
+  display: flex;
+  gap: 8px; /* Butonlar arasındaki boşluk */
+}
+
 .pagination-dots button {
   width: 12px;
   height: 12px;
-  margin: 0 5px;
   background-color: grey; /* Varsayılan renkte gri */
   border-radius: 50%; /* Yuvarlak yapmak için */
   border: none;
@@ -87,7 +95,7 @@ right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
 
 .pagination-dots button.active {
   background-color: black; /* Aktif slide'ı belirgin yapmak için siyah */
-
+}
 </style>
 
 <div class="swiper">
