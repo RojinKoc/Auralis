@@ -50,6 +50,25 @@
 #next {
   right: 20px; /* Sağ ortada olacak şekilde yerleştirir */
 }
+  
+/* Mobil cihazlar için özel stiller */
+@media (max-width: 768px) {
+  .slider {
+    height: 100vh; /* Tam ekran yüksekliği */
+  }
+
+  .slide img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Resmi ekranın tamamını kaplayacak şekilde ayarlar */
+  }
+
+  .indicators button {
+    top: 50%; /* Butonları dikeyde ortalar */
+    transform: translateY(-50%);
+  }
+}
+
 </style>
 
 <div class="swiper">
