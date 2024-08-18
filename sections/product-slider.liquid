@@ -1,6 +1,108 @@
+<style>
+  .product-slider {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.product-card {
+  min-width: 200px;
+  margin-right: 16px;
+  scroll-snap-align: start;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.product-card p {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+</style>
+
+<div class="product-slider">
+  {% for product in collections.all.products limit: 10 %}
+    <div class="product-card">
+      <a href="{{ product.url }}">
+        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | money }}</p>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.product-slider');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3; //scroll-fast
+    slider.scrollLeft = scrollLeft - walk;
+  });
+});
+
+</script>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Product Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "slider_title",
+      "label": "Slider Başlığı",
+      "default": "Öne Çıkan Ürünler"
+    },
+    {
+      "type": "collection",
+      "id": "product_collection",
+      "label": "Ürün Koleksiyonu"
+    },
+    {
+      "type": "number",
+      "id": "product_limit",
+      "label": "Gösterilecek Ürün Sayısı",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Varsayılan",
+      "category": "Bölümler"
+    }
+  ]
+}
 {% endschema %}
+
