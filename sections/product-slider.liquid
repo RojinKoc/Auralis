@@ -88,7 +88,7 @@ img {
   padding-inline: 1.25rem;
 }
 
-.swiper {
+.product-slider {
   &-button-next::after,
   &-button-prev::after {
     display: flex;
@@ -108,7 +108,7 @@ img {
 </style>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
  <div class="page-width slider-column">
-    <div class="swiper swiper-slider">
+    <div class="product-slider swiper-slider">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
          <div class="swiper-slide">
@@ -170,7 +170,7 @@ img {
   </script>
 {% schema %}
 {
-  "name": "Swiper",
+  "name": "Product-Slider",
   "class": "slideshow",
   "settings": [
     {
