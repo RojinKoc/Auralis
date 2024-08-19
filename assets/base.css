@@ -3606,7 +3606,7 @@ details-disclosure > details {
   margin-top: 3px;
   margin-right: -4px;
 }
-.animate-arrow:hover .icon-arrow {
+.bi-instagram:hover {
   transform: scale(1.2); /* İkonu %20 büyütür */
   transition: transform 0.3s ease; /* Animasyonu yumuşak hale getirir */
 }
