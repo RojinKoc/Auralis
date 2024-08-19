@@ -3606,3 +3606,6 @@ details-disclosure > details {
   margin-top: 3px;
   margin-right: -4px;
 }
+.bi-instagram:hover{
+  font-size: 150%;
+}
