@@ -3603,10 +3603,7 @@ details-disclosure > details {
   }
 }
 
-.bi-instagram:hover {
-  transform: scale(1.2); /* İkonu %20 büyütür */
-  transition: transform 0.3s ease; /* Animasyonu yumuşak hale getirir */
-}
+
 
 .body{
   padding: 5px;
