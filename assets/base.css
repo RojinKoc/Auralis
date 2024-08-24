@@ -3621,3 +3621,13 @@ details-disclosure > details {
       flex: auto;
   }
   }
+  @media only screen and (min-width: 749px){
+    .footer__content-top.page-width {
+        gap: 8px;
+        flex-direction: row-reverse;
+    }
+        .footer-block--newsletter.scroll-trigger.animate--slide-in {
+        width: 25%;
+        align-items: flex-start;
+    }
+    }
