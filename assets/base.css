@@ -3613,7 +3613,6 @@ details-disclosure > details {
       display: flex;
       justify-content: space-between;
       gap: 8px;
-      text-align: center;
 
   }
   .footer-block--newsletter.scroll-trigger.animate--slide-in {
