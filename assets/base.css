@@ -3607,3 +3607,17 @@ details-disclosure > details {
 .body{
   padding: 5px;
 }
+
+@media only screen and (min-width: 749px){
+  .footer__content-top.page-width {
+      display: flex;
+      justify-content: space-between;
+  }
+  .footer-block--newsletter.scroll-trigger.animate--slide-in {
+      flex-direction: column;
+      margin-top: 0px;
+  }
+  .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+      flex: auto;
+  }
+  }
