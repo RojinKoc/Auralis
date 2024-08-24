@@ -24,6 +24,49 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+    <style>
+  @media (max-width: 749px) {
+    .grid .footer-block.grid__item {
+      margin: 0;
+    }
+    .grid .footer-block__heading {
+      position: relative;
+      margin: 0;
+      padding: 1.5rem 0;
+      cursor: pointer;
+    }
+    .grid .footer-block__heading::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      text-align: center;
+    }
+    .grid .footer-block__heading:not(.block-collapsed)::after {
+      content: "-";
+    }
+    .grid .footer-block__heading.block-collapsed + .footer-block__details-content {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      transition: all .2s ease-out;
+      overflow: hidden;
+    }
+    .grid .footer-block__heading + .footer-block__details-content {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+      transition: all .2s ease-out;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+  }
+</style>
   }
 {%- endstyle -%}
 
@@ -562,3 +605,44 @@
   }
 }
 {% endschema %}
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const headings = document.querySelectorAll('.grid .footer-block__heading');
+
+  const handleCollapse = (heading) => {
+    const content = heading.nextElementSibling;
+
+    if (heading.classList.contains('block-collapsed')) {
+      heading.classList.remove('block-collapsed');
+      heading.setAttribute('aria-expanded', 'true');
+      content.style.display = 'block'; // or any other preferred display property
+    } else {
+      heading.classList.add('block-collapsed');
+      heading.setAttribute('aria-expanded', 'false');
+      content.style.display = 'none';
+    }
+  };
+
+  headings.forEach((heading, index) => {
+    heading.classList.add('block-collapsed');
+    heading.setAttribute('role', 'button');
+    heading.setAttribute('aria-expanded', 'false');
+    heading.setAttribute('tabindex', '0');
+
+    const content = heading.nextElementSibling;
+    content.setAttribute('id', `footer-block-index-${index}`);
+    heading.setAttribute('aria-controls', `footer-block-index-${index}`);
+
+    heading.addEventListener('click', () => {
+      handleCollapse(heading);
+    });
+
+    heading.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        handleCollapse(heading);
+      }
+    });
+  });
+});
+</script>
