@@ -39,7 +39,7 @@
 
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/woman-in-fur-under-neon.jpg",
+        "image": "shopify:\/\/shop_images\/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
         "image_overlay_opacity": 30,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -48,8 +48,8 @@
         "color_scheme": "scheme-3",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": true
+        "stack_images_on_mobile": true,
+        "show_text_below": false
       }
     },
     "featured_collection": {
@@ -65,7 +65,7 @@
         "columns_desktop": 4,
         "full_width": true,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
