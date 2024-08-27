@@ -3645,7 +3645,7 @@ details-disclosure>details {
 }
 .product__description p, .product__description p span{
   font-size: 20px !important;
-  font-family: 'Courier New', Courier, monospace;
+  
 }
 @media screen and (max-width: 749px) {
   .banner__media {
