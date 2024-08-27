@@ -141,6 +141,18 @@
               </span>
             {%- endif -%}
           </div>
+          {% if product.compare_at_price > product.price %}
+            {% assign discount = ((product.compare_at_price | minus: product.price) | divided_by: product.compare_at_price) | times: 100 | round %}
+            <div class="discount-label">
+              -{{ discount }}%
+            </div>
+          {% endif %}
+          
+          <!-- Mevcut fiyat göstergesi -->
+          <div class="product-price">
+            {{ product.price | money }}
+          </div>
+          
         </div>
       </div>
       <div class="card__content">
