@@ -18,6 +18,8 @@
   display: flex;
   padding: 1rem;
   color: rgb(var(--color-foreground));
+  height: 20px;
+  width: 20px;
 }
 
 .utility-bar .list-social__link {
