@@ -3652,3 +3652,17 @@ details-disclosure>details {
     height: 120vw;
   }
 }
+.discount-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: red; /* İndirim etiketinin rengi */
+  color: white; /* Metin rengi */
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.product-card {
+  position: relative;
+}
