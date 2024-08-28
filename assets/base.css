@@ -3673,7 +3673,7 @@ details-disclosure>details {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color:transparent; /* Adjust color as needed */
+  background-color:black; /* Adjust color as needed */
   color: white;
   padding: 5px;
   font-size: 12px;
