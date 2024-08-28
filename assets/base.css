@@ -3657,8 +3657,8 @@ details-disclosure>details {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: red; /* İndirim etiketinin rengi */
-  color: white; /* Metin rengi */
+  background-color: red; 
+  color: white; 
   padding: 5px;
   font-size: 14px;
   font-weight: bold;
@@ -3673,7 +3673,7 @@ details-disclosure>details {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color:black; /* Adjust color as needed */
+  background-color:black; 
   color: white;
   padding: 5px;
   font-size: 12px;

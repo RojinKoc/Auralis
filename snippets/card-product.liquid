@@ -624,18 +624,16 @@
   </div>
 {%- endif -%}
 
-<div class="product-card">
-  <!-- Your existing product card code here -->
+{% assign stock = 0 %}            
+              {% for variant in product.variants %}
+              {%capture stock %}
+              {{ stock | plus:variant.inventory_quantity }}
+              {% endcapture %}
+              {% endfor %}
+              
+              {%assign stock = stock | times:1%}
 
-  <!-- Add this condition to check inventory -->
-  {% assign inventory_quantity = product.variants.first.inventory_quantity %}
-  {% if inventory_quantity < 5 and inventory_quantity > 0 %}
-    <div class="low-stock">
-      Only {{ inventory_quantity }} left in stock!
-    </div>
-  {% endif %}
-  
-  <!-- Rest of your product card code -->
-</div>
-
+			  {% if stock < 3 and stock > 0 %}
+        <span class="label inventory"; style= "color: red";><h4>&#10071; Only <b> {{stock}}</b> left!</h4></span>
+			  {% endif %}
 
