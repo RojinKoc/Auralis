@@ -1476,3 +1476,22 @@ a.product__text {
     border: none;
   }
 }
+
+.thumbnail-slider {
+  display: flex;
+  flex-direction: column; /* Görselleri dikey hizalamak için */
+  align-items: flex-start; /* Görselleri sol tarafa hizalar */
+}
+
+.thumbnail-slider img {
+  width: 80px; /* Küçük görsellerin boyutu */
+  margin-bottom: 10px; /* Görseller arası boşluk */
+  opacity: 0.6; /* Küçük görsellerin opaklığı */
+  transition: opacity 0.3s; /* Geçiş efekti */
+}
+
+.thumbnail-slider img:hover,
+.thumbnail-slider img.active {
+  opacity: 1 !important; /* Hover veya aktif olan görselin opaklığı tam */
+}
+
