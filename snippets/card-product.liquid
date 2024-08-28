@@ -560,6 +560,9 @@
             >
               {{- 'products.product.on_sale' | t -}}
             </span>
+            <span class="dicount-label">
+              {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% OFF
+            </span>
           {%- endif -%}
         </div>
       </div>
