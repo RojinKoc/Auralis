@@ -122,7 +122,7 @@
       {{ 'products.product.on_sale' | t }}
     </span>
     <span>
-      {{target.compare_at_price | minus: target.price | times: 100 | divided_by: target.compare_at_price }}% off
+      {{product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% off
     </span>
 
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
