@@ -122,7 +122,7 @@
       {%- comment -%}
         {{ 'products.product.on_sale' | t }}
       {%- endcomment -%}
-      {{compare_at_price | minus: price | times: 100 | divided_by:  compare_at_price }}% OFF
+      {{compare_at_price | minus: price | times: 100 | divided_by:  compare_at_price }}% İndirim
     </span>
     
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
