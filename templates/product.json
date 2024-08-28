@@ -59,12 +59,6 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "sku_npQjqy": {
-          "type": "sku",
-          "settings": {
-            "text_style": "body"
-          }
         }
       },
       "block_order": [
@@ -75,8 +69,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "share",
-        "sku_npQjqy"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
