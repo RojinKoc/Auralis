@@ -21,6 +21,7 @@
   color: rgb(var(--color-foreground));
   height: 20px;
   width: 20px;
+  box-sizing: revert;
 }
 
 .utility-bar .list-social__link {
