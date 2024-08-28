@@ -1478,16 +1478,16 @@ a.product__text {
 }
 
 .thumbnail-slider {
-  display: flex;
-  flex-direction: column; /* Görselleri dikey hizalamak için */
+  display: flex !important; 
+  flex-direction: column !important; /* Görselleri dikey hizalamak için */
   align-items: flex-start; /* Görselleri sol tarafa hizalar */
 }
 
 .thumbnail-slider img {
-  width: 80px; /* Küçük görsellerin boyutu */
-  margin-bottom: 10px; /* Görseller arası boşluk */
-  opacity: 0.6; /* Küçük görsellerin opaklığı */
-  transition: opacity 0.3s; /* Geçiş efekti */
+  width: 80px !important; /* Küçük görsellerin boyutu */
+  margin-bottom: 10px !important; /* Görseller arası boşluk */
+  opacity: 0.6 !important; /* Küçük görsellerin opaklığı */
+  transition: opacity 0.3s !important; /* Geçiş efekti */
 }
 
 .thumbnail-slider img:hover,
