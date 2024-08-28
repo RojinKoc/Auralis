@@ -141,13 +141,16 @@
               </span>
             {%- endif -%}
           </div>
-          {% if product.compare_at_price gt product.price %}
+          {% assign compare_price = product.compare_at_price | to_number %}
+          {% assign sale_price = product.price | to_number %}
+          
+          {% if compare_price > sale_price %}
+            {% assign discount = ((compare_price | minus: sale_price) | divided_by: compare_price) | times: 100 | round %}
             <div class="discount-label">
-              {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by:  card_product.compare_at_price }}% off
+              -{{ discount }}%
             </div>
           {% endif %}
           
-
 
         </div>
       </div>
