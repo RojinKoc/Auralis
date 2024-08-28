@@ -3680,24 +3680,5 @@ details-disclosure>details {
   border-radius: 3px;
 }
 
-.product-images {
-  display: flex;
-  flex-direction: column; /* Görselleri dikey hizalamak için */
-  align-items: center; /* Görselleri merkezde hizalar */
-}
 
-.product-images img {
-  width: 80px; /* Küçük görsellerin boyutu */
-  margin-bottom: 10px; /* Görseller arası boşluk */
-  opacity: 0.6; /* Küçük görsellerin opaklığı */
-  transition: opacity 0.3s; /* Geçiş efekti */
-}
-
-.product-images img:hover {
-  opacity: 1; /* Hover olduğunda opaklık */
-}
-
-.product-images img.active {
-  opacity: 1; /* Büyük görselin opaklığı tam */
-}
 
