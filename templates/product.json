@@ -44,6 +44,23 @@
             "show_gift_card_recipient": true
           }
         },
+        "wishlist_hero_custom_product_button_hpcwYk": {
+          "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/custom-product-button\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+          "settings": {
+            "displayButtonMode": "text_with_icon",
+            "contentAlignment": "center",
+            "buttonAlignment": "center",
+            "topMargin": -16,
+            "buttonFontSize": 15,
+            "buttonFullwidth": true,
+            "removeBoxShadowAndBorder": false,
+            "horizontalPadding": 20,
+            "iconSize": 18,
+            "iconTopOffset": 0,
+            "addedCssClassNames": "",
+            "addedContainerStyles": ""
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -74,6 +91,7 @@
         "price",
         "variant_picker",
         "buy_buttons",
+        "wishlist_hero_custom_product_button_hpcwYk",
         "description",
         "icon_with_text_PYQ6K7",
         "share"
