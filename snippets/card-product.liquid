@@ -145,11 +145,17 @@
                 {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% İndirim
               </span>
             {%- endif -%}test
-            {% if product.variants.first.inventory_quantity < 5 and product.variants.first.inventory_quantity > 0 %}
-              <div class="low-stock-badge">
-                Son {{ product.variants.first.inventory_quantity }} Stok!
-              </div>
-            {% endif %}
+            <!-- Your existing product card code before the stock message -->
+
+{% assign inventory_quantity = product.variants.first.inventory_quantity %}
+{% if inventory_quantity < 5 and inventory_quantity > 0 %}
+  <div class="low-stock">
+    Only {{ inventory_quantity }} left in stock!
+  </div>
+{% endif %}
+
+<!-- Your existing product card code after the stock message -->
+
           </div>
          
         </div>
@@ -573,11 +579,17 @@
               {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% İndirim
             </span>
           {%- endif -%}deneme
-          {% if product.variants.first.inventory_quantity < 5 and product.variants.first.inventory_quantity > 0 %}
-            <div class="low-stock-badge">
-              Son {{ product.variants.first.inventory_quantity }} Stok!
-            </div>
-          {% endif %}
+          <!-- Your existing product card code before the stock message -->
+
+{% assign inventory_quantity = product.variants.first.inventory_quantity %}
+{% if inventory_quantity < 5 and inventory_quantity > 0 %}
+  <div class="low-stock">
+    Only {{ inventory_quantity }} left in stock!
+  </div>
+{% endif %}
+
+<!-- Your existing product card code after the stock message -->
+
         </div>
       </div>
     </div>
