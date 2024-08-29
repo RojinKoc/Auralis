@@ -24,11 +24,6 @@
           "settings": {
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "price": {
           "type": "price",
           "settings": {
@@ -39,7 +34,7 @@
           "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "circle"
+            "swatch_shape": "square"
           }
         },
         "buy_buttons": {
@@ -49,10 +44,9 @@
             "show_gift_card_recipient": true
           }
         },
-        "share": {
-          "type": "share",
+        "description": {
+          "type": "description",
           "settings": {
-            "share_label": "Share"
           }
         },
         "icon_with_text_PYQ6K7": {
@@ -60,23 +54,29 @@
           "settings": {
             "layout": "vertical",
             "icon_1": "heart",
-            "heading_1": "Başlık",
-            "icon_2": "return",
-            "heading_2": "Başlık",
+            "heading_1": "Wishlist",
+            "icon_2": "chat_bubble",
+            "heading_2": "<a href=\"\/pages\/sikca-sorulan-sorular\" target=\"_blank\" title=\"SIKÇA SORULAN SORULAR\">Sıkça Sorulan Sorular<\/a>",
             "icon_3": "truck",
             "heading_3": "<a href=\"\/pages\/aydinlatma-metni̇\" target=\"_blank\" title=\"AYDINLATMA METNİ\">Değişim \/ İade Süreci<\/a>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
           }
         }
       },
       "block_order": [
         "vendor",
         "title",
-        "description",
         "price",
         "variant_picker",
         "buy_buttons",
-        "share",
-        "icon_with_text_PYQ6K7"
+        "description",
+        "icon_with_text_PYQ6K7",
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
