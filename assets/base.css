@@ -3652,6 +3652,15 @@ details-disclosure>details {
     height: 120vw;
   }
 }
+
+/* title altına çizgi */
+.product-title {
+  border-bottom: 4px solid #000; /* Çizginin kalınlığı ve rengi */
+  padding-bottom: 10px; /* Başlık altına biraz boşluk ekleyin */
+  display: inline-block; /* Çizginin sadece başlık genişliğinde olmasını sağlar */
+  margin-bottom: 15px; /* Çizgi ile diğer içerik arasındaki boşluk */
+}
+
 /*discount percentage*/
 .discount-label {
   position: absolute;
