@@ -3657,7 +3657,7 @@ details-disclosure>details {
 .product__title {
   border-bottom: 4px solid #000; /* Çizginin kalınlığı ve rengi */
   padding-bottom: 10px; /* Başlık altına biraz boşluk ekleyin */
-  display: inline-block; /* Çizginin sadece başlık genişliğinde olmasını sağlar */
+  display: block; /*  inline- block Çizginin sadece başlık genişliğinde olmasını sağlar */
   margin-bottom: 15px !important; /* Çizgi ile diğer içerik arasındaki boşluk */
 }
 
