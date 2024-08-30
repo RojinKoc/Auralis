@@ -643,16 +643,3 @@
   </div>
 {%- endif -%}
 
-{% assign stock = 0 %}            
-              {% for variant in product.variants %}
-              {%capture stock %}
-              {{ stock | plus:variant.inventory_quantity }}
-              {% endcapture %}
-              {% endfor %}
-              
-              {%assign stock = stock | times:1%}
-
-			  {% if stock < 3 and stock > 0 %}
-        <span class="label inventory"; style= "color: red";><h4>&#10071; Only <b> {{stock}}</b> left!</h4></span>
-			  {% endif %}
-
