@@ -131,6 +131,16 @@
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
         {{ 'products.product.sold_out' | t }}
       </span>
+      {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+
+      {% if product.available and inventory_quantity < 5 %}
+        <div
+          class="low-stock"
+          style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px;"
+        >
+          Only {{ inventory_quantity }} left in stock!
+        </div>
+      {% endif %}
     {%- endif -%}
   </div>
 {% endunless %}
