@@ -145,16 +145,12 @@
                 {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% İndirim
               </span>
             {%- endif -%}test
-            <!-- Your existing product card code before the stock message -->
-
-{% assign inventory_quantity = product.variants.first.inventory_quantity %}
-{% if inventory_quantity < 5 and inventory_quantity > 0 %}
-  <div class="low-stock">
-    Only {{ inventory_quantity }} left in stock!
-  </div>
-{% endif %}
-
-<!-- Your existing product card code after the stock message -->
+            {% if product.available and product.variants.first.inventory_quantity < 5 %}
+              <div class="low-stock" style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px;">
+                Only {{ product.variants.first.inventory_quantity }} left in stock!
+              </div>
+            {% endif %}
+            
 
           </div>
          
@@ -579,16 +575,12 @@
               {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% İndirim
             </span>
           {%- endif -%}deneme
-          <!-- Your existing product card code before the stock message -->
-
-{% assign inventory_quantity = product.variants.first.inventory_quantity %}
-{% if inventory_quantity < 5 and inventory_quantity > 0 %}
-  <div class="low-stock">
-    Only {{ inventory_quantity }} left in stock!
-  </div>
-{% endif %}
-
-<!-- Your existing product card code after the stock message -->
+          {% if product.available and product.variants.first.inventory_quantity < 5 %}
+            <div class="low-stock" style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px;">
+              Only {{ product.variants.first.inventory_quantity }} left in stock!
+            </div>
+          {% endif %}
+          
 
         </div>
       </div>
