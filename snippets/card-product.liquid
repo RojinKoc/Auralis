@@ -145,9 +145,9 @@
                 {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% İndirim
               </span>
             {%- endif -%}test
-            {% if product.available and product.variants.first.inventory_quantity < 5 %}
+            {% if product.available < 5 %}
               <div class="low-stock" style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px;">
-                Only {{ product.variants.first.inventory_quantity }} left in stock!
+                Only {{ product.available }} left in stock!
               </div>
             {% endif %}
             
@@ -575,9 +575,9 @@
               {{card_product.compare_at_price | minus: card_product.price | times: 100 | divided_by: card_product.compare_at_price }}% İndirim
             </span>
           {%- endif -%}deneme
-          {% if product.available and product.variants.first.inventory_quantity < 5 %}
+          {% if product.available < 5 %}
             <div class="low-stock" style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px;">
-              Only {{ product.variants.first.inventory_quantity }} left in stock!
+              Only {{ product.available}} left in stock!
             </div>
           {% endif %}
           
