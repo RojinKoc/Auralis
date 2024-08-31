@@ -157,9 +157,9 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %} {% endcomment %}
-            {% if card_product.available < 5 %} 
+            {% if product.selected_or_first_available_variant.inventory_quantity < 5 %} 
               <div class="low-stock">
-                Only {{ card_product.available}} left in stock!
+                Only {{ product.selected_or_first_available_variant.inventory_quantity}} left in stock!
               </div>
             {% endif %}
           </div>
@@ -598,9 +598,9 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %} {% endcomment %}
-            {% if card_product.available < 5 %}
+            {% if product.selected_or_first_available_variant.inventory_quantity < 5 %}
               <div class="low-stock">
-                Only {{ card_product.available }} left in stock!
+                Only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!
               </div>
             {% endif %}
         </div>
