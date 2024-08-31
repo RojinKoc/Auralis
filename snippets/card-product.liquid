@@ -157,9 +157,9 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %} {% endcomment %}
-            {% if product.available < 5 %}
+            {% if card_product.available < 5 %} 
               <div class="low-stock">
-                Only {{ product.available }} left in stock!
+                Only {{ card_product.available}} left in stock!
               </div>
             {% endif %}
           </div>
@@ -598,9 +598,9 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %} {% endcomment %}
-            {% if product.available < 5 %}
+            {% if card_product.available < 5 %}
               <div class="low-stock">
-                Only {{ product.available }} left in stock!
+                Only {{ card_product.available }} left in stock!
               </div>
             {% endif %}
         </div>
