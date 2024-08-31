@@ -148,8 +148,7 @@
                 -}}
                 % İndirim
               </span>
-            {%- endif -%}
-            test
+            {% else %}
             {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
 
             {% if inventory_quantity < 5 %}
@@ -160,6 +159,9 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %}
+            {%- endif -%}
+            test
+            
           </div>
         </div>
       </div>
