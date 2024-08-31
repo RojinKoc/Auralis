@@ -3670,7 +3670,7 @@ details-disclosure>details {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color:black; 
+  background-color:transparent; 
   color: white;
   padding: 5px;
   font-size: 12px;
