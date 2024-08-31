@@ -148,16 +148,15 @@
                 -}}
                 % İndirim
               </span>
-            {% elsif %}
+            
+            {%- endif -%}
+            test
             {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
             {% if inventory_quantity < 5 %}
               <div class="low-stock">
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %}
-            {%- endif -%}
-            test
-            
           </div>
         </div>
       </div>
@@ -585,15 +584,15 @@
               -}}
               % İndirim
             </span>
-            {% elsif %}
-            {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+            
+          {%- endif -%}
+          deneme
+          {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
             {% if inventory_quantity < 5 %}
               <div class="low-stock">
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %}
-          {%- endif -%}
-          deneme
         </div>
       </div>
     </div>
