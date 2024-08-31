@@ -148,13 +148,10 @@
                 -}}
                 % İndirim
               </span>
-            {% else %}
+            {% elsif %}
             {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
             {% if inventory_quantity < 5 %}
-              <div
-                class="low-stock"
-                style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px; z-index: 10;"
-              >
+              <div class="low-stock">
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %}
@@ -588,13 +585,10 @@
               -}}
               % İndirim
             </span>
-            {% else %}
+            {% elsif %}
             {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
             {% if inventory_quantity < 5 %}
-              <div
-                class="low-stock"
-                style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; padding: 5px; border-radius: 3px; z-index: 10;"
-              >
+              <div class="low-stock">
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %}
