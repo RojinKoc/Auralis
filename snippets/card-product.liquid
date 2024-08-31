@@ -151,7 +151,12 @@
             
             {%- endif -%}
             test
-            {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+            {% comment %} {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+            {% if inventory_quantity < 5 %}
+              <div class="low-stock">
+                Only {{ inventory_quantity }} left in stock!
+              </div>
+            {% endif %} {% endcomment %}
             {% if inventory_quantity < 5 %}
               <div class="low-stock">
                 Only {{ inventory_quantity }} left in stock!
@@ -587,7 +592,12 @@
             
           {%- endif -%}
           deneme
-          {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+          {% comment %} {% assign inventory_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+            {% if inventory_quantity < 5 %}
+              <div class="low-stock">
+                Only {{ inventory_quantity }} left in stock!
+              </div>
+            {% endif %} {% endcomment %}
             {% if inventory_quantity < 5 %}
               <div class="low-stock">
                 Only {{ inventory_quantity }} left in stock!
