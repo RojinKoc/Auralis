@@ -920,7 +920,7 @@ a.product__text {
   }
 
   .thumbnail-list {
-    display: grid;
+    display: block;
     grid-template-columns: repeat(4, 1fr);
   }
 }
