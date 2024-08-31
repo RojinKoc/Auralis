@@ -921,6 +921,7 @@ a.product__text {
 
   .thumbnail-list {
     display: block;
+    width: 80px;
     grid-template-columns: repeat(4, 1fr);
   }
 }
