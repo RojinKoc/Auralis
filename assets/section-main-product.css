@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center; /* Görsellerin ortalanmasını sağlar */
   align-items: center;
+  width: 100%;
 }
 
 @media screen and (min-width: 750px) {
@@ -1482,5 +1483,26 @@ a.product__text {
 
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
+  }
+}
+
+
+
+.product__media-item {
+  max-width: 100%;
+  height: auto; /* Görselin doğal oranını koruyacak şekilde boyutlandırma */
+  object-fit: contain; /* Görselin boyutuna göre yerleşmesini sağlamak için kullanıldı */
+}
+
+@media screen and (min-width: 750px) {
+  .product__media-wrapper {
+    max-width: 70%; /* Görselin masaüstünde daha büyük görünmesi için ayarlama yapıldı */
+    padding: 0; /* Padding değerleri sıfırlandı */
+  }
+
+  .product__media-item {
+    max-width: 100%;
+    width: auto;
+    height: auto;
   }
 }
