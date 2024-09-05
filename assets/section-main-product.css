@@ -1,4 +1,5 @@
-product-info {
+/* Product Info */
+.product-info {
   display: block;
 }
 
@@ -17,6 +18,9 @@ product-info {
 
 .product__media-wrapper {
   padding-left: 0;
+  display: flex;
+  justify-content: center; /* Görsellerin ortalanmasını sağlar */
+  align-items: center;
 }
 
 @media screen and (min-width: 750px) {
@@ -383,8 +387,10 @@ a.product__text {
 
 @media screen and (max-width: 749px) {
   .product__media-list {
-    margin-left: -2.5rem;
+    margin-left: 0;
     margin-bottom: 3rem;
+    display: flex;
+    justify-content: center; /* Mobilde ortalamayı sağlar */
     width: calc(100% + 4rem);
   }
 
@@ -1100,6 +1106,7 @@ a.product__text {
     outline: transparent solid 1px;
   }
 }
+
 .thumbnail[aria-current]:focus:not(:focus-visible) {
   outline: 0;
   box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
