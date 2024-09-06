@@ -17,10 +17,8 @@
 
 .product__media-wrapper {
   padding-left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   max-width: 100%;
+  margin: 0 auto;
 }
 
 .product__media-item {
