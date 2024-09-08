@@ -3685,4 +3685,32 @@ details-disclosure>details {
 }
 
 
+media-gallery#MediaGallery-template--22661505712424__main {
+  flex-direction: row-reverse;
+  display: flex;
+}
 
+slider-component#GalleryViewer-template--22661505712424__main {
+  height: auto;
+  width: 100%;
+}
+
+slider-component#GalleryThumbnails-template--22661505712424__main {
+  flex-direction: column;
+}
+
+ul#Slider-Thumbnails-template--22661505712424__main {
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+ul#Slider-Thumbnails-template--22661505712424__main li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 50px;
+  height: auto;
+}
+
+.product--thumbnail_slider .slider-mobile-gutter .slider-button {
+  display: none !important;
+}
