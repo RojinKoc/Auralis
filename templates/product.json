@@ -37,11 +37,6 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector_kwkk8w": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -95,7 +90,6 @@
         "title",
         "price",
         "variant_picker",
-        "quantity_selector_kwkk8w",
         "buy_buttons",
         "wishlist_hero_custom_product_button_hpcwYk",
         "description",
