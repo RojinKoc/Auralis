@@ -92,6 +92,12 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "sku_NNH476": {
+          "type": "sku",
+          "settings": {
+            "text_style": "subtitle"
+          }
         }
       },
       "block_order": [
@@ -104,7 +110,8 @@
         "description",
         "collapsible_tab_T8kjBR",
         "icon_with_text_PYQ6K7",
-        "share"
+        "share",
+        "sku_NNH476"
       ],
       "settings": {
         "enable_sticky_info": true,
