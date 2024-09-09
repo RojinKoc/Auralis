@@ -3764,5 +3764,5 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
 
 .shopify-payment-button__button:hover{
   color: #000;
-  background-color: #e5e5e5;
+  background-color: #e5e5e5 !important;
 }
