@@ -97,24 +97,29 @@ document.addEventListener("DOMContentLoaded", function () {
 // 	});
 // });
 
-$(function () {
-  // (Optional) Active an item if it has the class "is-active"
-  $(".accordions > .accordions-item.is-active")
-    .children(".accordions-panel")
-    .slideDown();
+// Tüm accordion başlıklarını seçiyoruz
+const accordionThumbs = document.querySelectorAll('.accordions-thumb');
 
-  // Use event delegation for better performance and to handle dynamically added elements
-  $(".accordions").on("click", ".accordions-item", function () {
-    // Cancel the siblings
-    $(this)
-      .siblings(".accordions-item")
-      .removeClass("is-active")
-      .children(".accordions-panel")
-      .slideUp();
-    // Toggle the item
-    $(this)
-      .toggleClass("is-active")
-      .children(".accordions-panel")
-      .slideToggle({ duration: "fast", easing: "swing" });
-  });
+// Her başlığa tıklama olayı ekliyoruz
+accordionThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+        // Tıklanan başlığın ait olduğu accordion item'ı seçiyoruz
+        const item = thumb.parentElement;
+
+        // Eğer item aktifse, kapat
+        if (item.classList.contains('is-active')) {
+            item.classList.remove('is-active');
+            item.querySelector('.accordions-panel').style.display = 'none';
+        } else {
+            // Diğer tüm itemları kapatıyoruz
+            document.querySelectorAll('.accordions-item').forEach(i => {
+                i.classList.remove('is-active');
+                i.querySelector('.accordions-panel').style.display = 'none';
+            });
+
+            // Tıklanan item'ı açıyoruz
+            item.classList.add('is-active');
+            item.querySelector('.accordions-panel').style.display = 'block';
+        }
+    });
 });
