@@ -84,15 +84,37 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Accordion by WebSensePro.com
-$(function() {
-	// (Optional) Active an item if it has the class "is-active"	
-	$(".accordions > .accordions-item.is-active").children(".accordions-panel").slideDown();
+// // Accordion by WebSensePro.com
+// $(function() {
+// 	// (Optional) Active an item if it has the class "is-active"	
+// 	$(".accordions > .accordions-item.is-active").children(".accordions-panel").slideDown();
 	
-	$(".accordions > .accordions-item").click(function() {
-		// Cancel the siblings
-		$(this).siblings(".accordions-item").removeClass("is-active").children(".accordions-panel").slideUp();
-		// Toggle the item
-		$(this).toggleClass("is-active").children(".accordions-panel").slideToggle("ease-out");
-	});
+// 	$(".accordions > .accordions-item").click(function() {
+// 		// Cancel the siblings
+// 		$(this).siblings(".accordions-item").removeClass("is-active").children(".accordions-panel").slideUp();
+// 		// Toggle the item
+// 		$(this).toggleClass("is-active").children(".accordions-panel").slideToggle("ease-out");
+// 	});
+// });
+
+$(function () {
+  // (Optional) Active an item if it has the class "is-active"
+  $(".accordions > .accordions-item.is-active")
+    .children(".accordions-panel")
+    .slideDown();
+
+  // Use event delegation for better performance and to handle dynamically added elements
+  $(".accordions").on("click", ".accordions-item", function () {
+    // Cancel the siblings
+    $(this)
+      .siblings(".accordions-item")
+      .removeClass("is-active")
+      .children(".accordions-panel")
+      .slideUp();
+    // Toggle the item
+    $(this)
+      .toggleClass("is-active")
+      .children(".accordions-panel")
+      .slideToggle({ duration: "fast", easing: "swing" });
+  });
 });
