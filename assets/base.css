@@ -3756,6 +3756,9 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
   padding-bottom: 0.8rem;
   display: none;
 }
+.custom-accordion-panel.is-visible {
+  display: block;
+}
 
 /* Active */
 .custom-accordion-item.is-active .custom-accordion-thumb::before {

@@ -105,24 +105,22 @@ accordionThumbs.forEach(thumb => {
     thumb.addEventListener('click', () => {
         // Tıklanan başlığın ait olduğu accordion item'ı seçiyoruz
         const item = thumb.parentElement;
+        const panel = item.querySelector('.custom-accordion-panel');
 
         // Eğer item aktifse, kapat
         if (item.classList.contains('is-active')) {
             item.classList.remove('is-active');
-            item.querySelector('.custom-accordion-panel').style.display = 'none';
+            panel.classList.remove('is-visible');
         } else {
             // Diğer tüm itemları kapatıyoruz
             document.querySelectorAll('.custom-accordion-item').forEach(i => {
                 i.classList.remove('is-active');
-                i.querySelector('.custom-accordion-panel').style.display = 'none';
+                i.querySelector('.custom-accordion-panel').classList.remove('is-visible');
             });
 
             // Tıklanan item'ı açıyoruz
             item.classList.add('is-active');
-            item.querySelector('.custom-accordion-panel').style.display = 'block';
+            panel.classList.add('is-visible');
         }
     });
-});
-
-
-
+})
