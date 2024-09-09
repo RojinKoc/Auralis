@@ -3766,3 +3766,8 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
   color: #000;
   background-color: #e5e5e5 !important;
 }
+
+.product-form__submit:hover{
+  color:#e5e5e5;
+  background-color: #000;
+}
