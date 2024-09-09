@@ -70,7 +70,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Gönderim ve İade Politikaları",
-            "icon": "price_tag",
+            "icon": "box",
             "content": "<p>Siparişin,<strong> 1 - 3 iş günü<\/strong> içerisinde kargoya teslim edilecektir. Resmî tatillerde siparişler, tatil sonrası kargoya verilir. Kullanılmamış ürünler için <strong>14 gün içerisinde<\/strong> cayma hakkını kullanabilirsin. Bu süre ürünün sana teslim edildiği tarihten itibaren başlar. İade etmek istediğin ürünleri satıcının anlaşmalı olduğu kargo firması ve ona ait iade kargo kodu ile iade etmelisin.<\/p><p>Hijyen kuralları gereği iç çamaşırları, maske, burun tıkacı, suluk, kozmetik ürünlerinde <strong>iade işlemi yapılmamaktadır. <\/strong>Bra, bikini üstü, bikini altı, mayo, kulaklık, ayakkabı bakım ürünü, çorap, güneş gözlüğü, saat, takı ve aksesuarlarda iade işlemi yapılabilmesi için<\/p><ul><li><strong>kullanılmamış<\/strong><\/li><li><strong>etiketi sökülmemiş<\/strong><\/li><li><strong>emniyet bandı<\/strong><\/li><li><strong>açılmamış <\/strong>zarar görmemiş olması gerekir.<\/li><\/ul><p>Daha detaylı bilgi için <a href=\"\/pages\/aydinlatma-metni̇\" target=\"_blank\" title=\"AYDINLATMA METNİ\"><span style=\"text-decoration:underline\">İade\/İptal sayfamızı<\/span><\/a> ziyaret edebilirsin. <\/p>",
             "page": "aydinlatma-metni̇"
           }
