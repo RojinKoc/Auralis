@@ -84,25 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// // Accordion by WebSensePro.com
-// $(function() {
-// 	// (Optional) Active an item if it has the class "is-active"	
-// 	$(".accordions > .accordions-item.is-active").children(".accordions-panel").slideDown();
+// Accordion by WebSensePro.com
+$(function() {
+	// (Optional) Active an item if it has the class "is-active"	
+	$(".accordions > .accordions-item.is-active").children(".accordions-panel").slideDown();
 	
-// 	$(".accordions > .accordions-item").click(function() {
-// 		// Cancel the siblings
-// 		$(this).siblings(".accordions-item").removeClass("is-active").children(".accordions-panel").slideUp();
-// 		// Toggle the item
-// 		$(this).toggleClass("is-active").children(".accordions-panel").slideToggle("ease-out");
-// 	});
-// });
-
-<script type="text/javascript" src="{{ 'jquery_accordion.js' | asset_url }}"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-$('.accordion').accordion({
-defaultOpen: 'section1',
-cookieName: 'accordion_nav'
+	$(".accordions > .accordions-item").click(function() {
+		// Cancel the siblings
+		$(this).siblings(".accordions-item").removeClass("is-active").children(".accordions-panel").slideUp();
+		// Toggle the item
+		$(this).toggleClass("is-active").children(".accordions-panel").slideToggle("ease-out");
+	});
 });
-});
-</script>
