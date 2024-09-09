@@ -196,16 +196,16 @@
                     </div>
                   {%- else -%}
                     <div class="product__description rte quick-add-hidden">
-                      <ul class="custom-accordion">
-                        <li class="custom-accordion-item is-active">
-                          <h3 class="custom-accordion-thumb">{{ product.metafields.custom.ilk_baslik }}</h3>
-                          <p class="custom-accordion-panel">{{ product.metafields.custom.ilk_aciklama }}</p>
+                      <ul class="toggle-list">
+                        <li class="toggle-item is-active">
+                            <h3 class="toggle-thumb">{{ product.metafields.custom.ilk_baslik }}</h3>
+                            <p class="toggle-panel">{{ product.metafields.custom.ilk_aciklama }}</p>
                         </li>
-                        <li class="custom-accordion-item">
-                          <h3 class="custom-accordion-thumb">{{ product.metafields.custom.ikinci_baslik }}</h3>
-                          <p class="custom-accordion-panel">{{ product.metafields.custom.ikinci_aciklama }}</p>
+                        <li class="toggle-item">
+                            <h3 class="toggle-thumb">{{ product.metafields.custom.ikinci_baslik }}</h3>
+                            <p class="toggle-panel">{{ product.metafields.custom.ikinci_aciklama }}</p>
                         </li>
-                      </ul>
+                    </ul>                    
                     </div>
                   {%- endif -%}
                 {%- endif -%}

@@ -97,30 +97,29 @@ document.addEventListener("DOMContentLoaded", function () {
 // 	});
 // });
 
-// Tüm accordion başlıklarını seçiyoruz
-const accordionThumbs = document.querySelectorAll('.custom-accordion-thumb');
+// Tüm toggle başlıklarını seçiyoruz
+const toggleThumbs = document.querySelectorAll('.toggle-thumb');
 
 // Her başlığa tıklama olayı ekliyoruz
-accordionThumbs.forEach(thumb => {
+toggleThumbs.forEach(thumb => {
     thumb.addEventListener('click', () => {
-        // Tıklanan başlığın ait olduğu accordion item'ı seçiyoruz
+        // Tıklanan başlığın ait olduğu toggle item'ı seçiyoruz
         const item = thumb.parentElement;
-        const panel = item.querySelector('.custom-accordion-panel');
 
         // Eğer item aktifse, kapat
         if (item.classList.contains('is-active')) {
             item.classList.remove('is-active');
-            panel.classList.remove('is-visible');
+            item.querySelector('.toggle-panel').style.display = 'none';
         } else {
             // Diğer tüm itemları kapatıyoruz
-            document.querySelectorAll('.custom-accordion-item').forEach(i => {
+            document.querySelectorAll('.toggle-item').forEach(i => {
                 i.classList.remove('is-active');
-                i.querySelector('.custom-accordion-panel').classList.remove('is-visible');
+                i.querySelector('.toggle-panel').style.display = 'none';
             });
 
             // Tıklanan item'ı açıyoruz
             item.classList.add('is-active');
-            panel.classList.add('is-visible');
+            item.querySelector('.toggle-panel').style.display = 'block';
         }
     });
-})
+});
