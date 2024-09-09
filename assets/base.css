@@ -3716,24 +3716,27 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
 } */
 
 
-.accordion2 {
+.custom-accordion {
   margin: 1rem 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid #e5e5e5;
 }
-.accordion2-item {
+
+.custom-accordion-item {
   border-bottom: 1px solid #e5e5e5;
   list-style: none !important; 
 }
+
 /* Thumb */
-.accordion2-thumb {
+.custom-accordion-thumb {
   margin: 0;
   padding: 0.8rem 0;
   cursor: pointer;
   font-weight: normal;
 }
-.accordion2-thumb::before {
+
+.custom-accordion-thumb::before {
   content: '';
   display: inline-block;
   height: 7px;
@@ -3746,13 +3749,15 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
   transform: rotate(-45deg);
   transition: transform 0.2s ease-out;
 }
+
 /* Panel */
-.accordion2-panel {
+.custom-accordion-panel {
   margin: 0;
   padding-bottom: 0.8rem;
   display: none;
 }
+
 /* Active */
-.accordion2-item.is-active .accordion2-thumb::before {
+.custom-accordion-item.is-active .custom-accordion-thumb::before {
   transform: rotate(45deg);
 }

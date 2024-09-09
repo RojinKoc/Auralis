@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 
 // Tüm accordion başlıklarını seçiyoruz
-const accordionThumbs = document.querySelectorAll('.accordion2-thumb');
+const accordionThumbs = document.querySelectorAll('.custom-accordion-thumb');
 
 // Her başlığa tıklama olayı ekliyoruz
 accordionThumbs.forEach(thumb => {
@@ -109,19 +109,20 @@ accordionThumbs.forEach(thumb => {
         // Eğer item aktifse, kapat
         if (item.classList.contains('is-active')) {
             item.classList.remove('is-active');
-            item.querySelector('.accordion2-panel').style.display = 'none';
+            item.querySelector('.custom-accordion-panel').style.display = 'none';
         } else {
             // Diğer tüm itemları kapatıyoruz
-            document.querySelectorAll('.accordion2-item').forEach(i => {
+            document.querySelectorAll('.custom-accordion-item').forEach(i => {
                 i.classList.remove('is-active');
-                i.querySelector('.accordion2-panel').style.display = 'none';
+                i.querySelector('.custom-accordion-panel').style.display = 'none';
             });
 
             // Tıklanan item'ı açıyoruz
             item.classList.add('is-active');
-            item.querySelector('.accordion2-panel').style.display = 'block';
+            item.querySelector('.custom-accordion-panel').style.display = 'block';
         }
     });
 });
+
 
 
