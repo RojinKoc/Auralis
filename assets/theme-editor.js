@@ -87,12 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
 // Accordion by WebSensePro.com
 $(function() {
 	// (Optional) Active an item if it has the class "is-active"	
-	$(".accordion > .accordion-item.is-active").children(".accordion-panel").slideDown();
+	$(".accordions > .accordions-item.is-active").children(".accordions-panel").slideDown();
 	
-	$(".accordion > .accordion-item").click(function() {
+	$(".accordions > .accordions-item").click(function() {
 		// Cancel the siblings
-		$(this).siblings(".accordion-item").removeClass("is-active").children(".accordion-panel").slideUp();
+		$(this).siblings(".accordions-item").removeClass("is-active").children(".accordions-panel").slideUp();
 		// Toggle the item
-		$(this).toggleClass("is-active").children(".accordion-panel").slideToggle("ease-out");
+		$(this).toggleClass("is-active").children(".accordions-panel").slideToggle("ease-out");
 	});
 });
