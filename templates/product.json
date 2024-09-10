@@ -74,6 +74,7 @@
         },
         "collapsible_tab_T8kjBR": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Gönderim ve İade Politikaları",
             "icon": "box",
