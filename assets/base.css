@@ -3669,7 +3669,7 @@ details-disclosure>details {
 /*quantity product cars*/
 .low-stock {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   left: 10px;
   border: 1px solid transparent;
   border-radius: var(--badge-corner-radius);
