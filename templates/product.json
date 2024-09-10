@@ -43,6 +43,12 @@
             "swatch_shape": "circle"
           }
         },
+        "quantity_selector_DacqgV": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -107,6 +113,7 @@
         "price",
         "sku_NNH476",
         "variant_picker",
+        "quantity_selector_DacqgV",
         "buy_buttons",
         "wishlist_hero_custom_product_button_hpcwYk",
         "description",
