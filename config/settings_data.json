@@ -10,6 +10,7 @@
 {
   "current": {
     "logo_width": 70,
+    "favicon": "shopify:\/\/shop_images\/R.png",
     "type_header_font": "avenir_next_n4",
     "heading_scale": 100,
     "type_body_font": "avenir_next_n4",
