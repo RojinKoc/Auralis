@@ -29,6 +29,12 @@
           "settings": {
           }
         },
+        "sku_NNH476": {
+          "type": "sku",
+          "settings": {
+            "text_style": "uppercase"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
@@ -92,26 +98,20 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "sku_NNH476": {
-          "type": "sku",
-          "settings": {
-            "text_style": "subtitle"
-          }
         }
       },
       "block_order": [
         "vendor",
         "title",
         "price",
+        "sku_NNH476",
         "variant_picker",
         "buy_buttons",
         "wishlist_hero_custom_product_button_hpcwYk",
         "description",
         "collapsible_tab_T8kjBR",
         "icon_with_text_PYQ6K7",
-        "share",
-        "sku_NNH476"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
