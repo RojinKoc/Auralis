@@ -3773,9 +3773,9 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
   color:#e5e5e5;
   background-color: #000;
 }
-/* #shopify-block-wishlist_hero_custom_product_button_hpcwYk :hover{
+#shopify-block-wishlist_hero_custom_product_button_hpcwYk :hover{
+  color:black;
+} 
+/* .shopify-block .shopify-app-block :hover{
   color:black;
 } */
-.shopify-block .shopify-app-block :hover{
-  color:black;
-}
