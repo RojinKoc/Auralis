@@ -981,7 +981,7 @@ a.product__text {
   }
 
   .thumbnail-slider .thumbnail-list.slider {
-    display: block;
+    display: flex;
     padding: 0.5rem;
     flex: 1;
     scroll-padding-left: 0.5rem;
@@ -996,10 +996,6 @@ a.product__text {
   .product--thumbnail_slider .thumbnail-slider {
     display: flex;
     align-items: center;
-    width: -webkit-fill-available;
-    position: absolute;
-    top: 0;
-    left: -140px;
   }
 
   .thumbnail-slider .thumbnail-list.slider--tablet-up {
