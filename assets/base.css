@@ -3773,7 +3773,7 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
   color:#e5e5e5;
   background-color: #000;
 }
-#wishlisthero-product-page-button-container button{
+#wishlisthero-product-page-button-container :hover{
   color: #e5e5e5;
   background-color: plum;
 }
