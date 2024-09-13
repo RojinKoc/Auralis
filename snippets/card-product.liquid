@@ -156,11 +156,11 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %} {% endcomment %}
-            {% comment %} {% if card_product.selected_or_first_available_variant.inventory_quantity < 5 and card_product.selected_or_first_available_variant.inventory_quantity > 0 %}  
+            {% if card_product.selected_or_first_available_variant.inventory_quantity < 5 and card_product.selected_or_first_available_variant.inventory_quantity > 0 %}  
               <div id="Badge-{{ section_id }}-{{ card_product.id }}" class="low-stock" >
                 Son {{ card_product.selected_or_first_available_variant.inventory_quantity}} ürün!
               </div>
-            {% endif %} {% endcomment %}
+            {% endif %}
           </div>
         </div>
       </div>
@@ -596,11 +596,11 @@
                 Only {{ inventory_quantity }} left in stock!
               </div>
             {% endif %} {% endcomment %}
-            {% comment %} {% if card_product.selected_or_first_available_variant.inventory_quantity < 5 and card_product.selected_or_first_available_variant.inventory_quantity > 0 %}
+            {% if card_product.selected_or_first_available_variant.inventory_quantity < 5 and card_product.selected_or_first_available_variant.inventory_quantity > 0 %}
               <div id="Badge-{{ section_id }}-{{ card_product.id }}" class="low-stock" >
                 Son {{ card_product.selected_or_first_available_variant.inventory_quantity }} ürün!
               </div>
-            {% endif %} {% endcomment %}
+            {% endif %}
         </div>
       </div>
     </div>
