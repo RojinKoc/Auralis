@@ -195,8 +195,9 @@
                       </details>
                     </div>
                   {%- else -%}
-                    <div class="product__description rte quick-add-hidden">
-                      <ul class="toggle-list">
+                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}> 
+                      {{ product.description }}
+                      {% comment %} <ul class="toggle-list">
                         <li class="toggle-item is-active">
                             <h3 class="toggle-thumb">{{ product.metafields.custom.ilk_baslik }}</h3>
                             <p class="toggle-panel">{{ product.metafields.custom.ilk_aciklama }}</p>
@@ -205,7 +206,7 @@
                             <h3 class="toggle-thumb">{{ product.metafields.custom.ikinci_baslik }}</h3>
                             <p class="toggle-panel">{{ product.metafields.custom.ikinci_aciklama }}</p>
                         </li>
-                    </ul>                    
+                      </ul> {% endcomment %}
                     </div>
                   {%- endif -%}
                 {%- endif -%}
