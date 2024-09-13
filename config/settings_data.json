@@ -147,7 +147,7 @@
     "blocks": {
       "7870687481494312845": {
         "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/app-embed\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "customThemeName": "~",
           "additionalWLButtonCssClasses": "",
@@ -158,7 +158,7 @@
       },
       "1366455014531238847": {
         "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/customize-style-block\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "Btn_color": "#f598ea",
           "WishlistButtonTextColor": "",

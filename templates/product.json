@@ -31,6 +31,7 @@
         },
         "sku_NNH476": {
           "type": "sku",
+          "disabled": true,
           "settings": {
             "text_style": "uppercase"
           }
