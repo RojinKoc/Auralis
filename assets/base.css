@@ -303,7 +303,7 @@ h1,
 
   h1,
   .h1 {
-    font-size: calc(var(--font-heading-scale) * 4rem);
+    font-size: calc(var(--font-heading-scale) * 3rem);
   }
 }
 
@@ -3642,9 +3642,6 @@ details-disclosure>details {
   }
 }
 
-.product__title h1 {
-  font-size: 30px;
-}
 .product__description p, .product__description p span{
   font-size: 18px !important;
   
