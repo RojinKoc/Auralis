@@ -115,8 +115,8 @@ if (!customElements.get('media-gallery')) {
     }
   );
 }
-onSlideChanged(event) {
-  const currentSlide = event.detail.currentElement;
+onSlideChanged() {
+  const currentSlide = detail.currentElement;
   const slides = Array.from(this.elements.viewer.querySelectorAll('[data-media-id]'));
   
   // Son slayta gelindiyse başa döner
