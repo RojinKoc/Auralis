@@ -996,10 +996,14 @@ a.product__text {
   .product--thumbnail_slider .thumbnail-slider {
     display: flex;
     align-items: center;
+    width: 800px;
+    position: absolute;
+    top: 0;
+    left: auto;
   }
 
   .thumbnail-slider .thumbnail-list.slider--tablet-up {
-    display: flex;
+    display: block;
     padding: 0.5rem;
     flex: 1;
     scroll-padding-left: 0.5rem;
