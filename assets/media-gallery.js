@@ -115,3 +115,24 @@ if (!customElements.get('media-gallery')) {
     }
   );
 }
+onSlideChanged(event) {
+  const totalSlides = this.elements.viewer.querySelectorAll('[data-media-id]').length; // Toplam slide sayısını al
+  const currentSlide = event.detail.currentElement; // Şu anda görüntülenen slide
+
+  // Eğer son slide'daysa ilk slide'a git
+  if (currentSlide === this.elements.viewer.querySelector(`[data-media-id="${totalSlides - 1}"]`)) {
+    this.setActiveMedia(this.elements.viewer.querySelector('[data-media-id="0"]').dataset.mediaId, false);
+    return;
+  }
+  
+  // Eğer ilk slide'daysa son slide'a git
+  if (currentSlide === this.elements.viewer.querySelector('[data-media-id="0"]')) {
+    this.setActiveMedia(this.elements.viewer.querySelector(`[data-media-id="${totalSlides - 1}"]`).dataset.mediaId, false);
+    return;
+  }
+
+  const thumbnail = this.elements.thumbnails.querySelector(
+    `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
+  );
+  this.setActiveThumbnail(thumbnail);
+}
