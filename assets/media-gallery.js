@@ -116,23 +116,20 @@ if (!customElements.get('media-gallery')) {
   );
 }
 onSlideChanged(event) {
-  const totalSlides = this.elements.viewer.querySelectorAll('[data-media-id]').length; // Toplam slide sayısını al
-  const currentSlide = event.detail.currentElement; // Şu anda görüntülenen slide
-
-  // Eğer son slide'daysa ilk slide'a git
-  if (currentSlide === this.elements.viewer.querySelector(`[data-media-id="${totalSlides - 1}"]`)) {
-    this.setActiveMedia(this.elements.viewer.querySelector('[data-media-id="0"]').dataset.mediaId, false);
-    return;
-  }
+  const currentSlide = event.detail.currentElement;
+  const slides = Array.from(this.elements.viewer.querySelectorAll('[data-media-id]'));
   
-  // Eğer ilk slide'daysa son slide'a git
-  if (currentSlide === this.elements.viewer.querySelector('[data-media-id="0"]')) {
-    this.setActiveMedia(this.elements.viewer.querySelector(`[data-media-id="${totalSlides - 1}"]`).dataset.mediaId, false);
-    return;
+  // Son slayta gelindiyse başa döner
+  if (currentSlide === slides[slides.length - 1]) {
+    this.setActiveMedia(slides[0].dataset.mediaId, false);
+  } else if (currentSlide === slides[0]) {
+    // İsteğe bağlı olarak geriye doğru döngüyü de yönetir
+    this.setActiveMedia(slides[slides.length - 1].dataset.mediaId, false);
   }
 
+  // Thumbnail'leri yönetmeye devam eder
   const thumbnail = this.elements.thumbnails.querySelector(
-    `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
+    `[data-target="${currentSlide.dataset.mediaId}"]`
   );
   this.setActiveThumbnail(thumbnail);
 }
