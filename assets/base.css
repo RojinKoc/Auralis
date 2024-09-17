@@ -3604,20 +3604,6 @@ details-disclosure>details {
   color: white !important;
 }
 
-@media screen and (max-width:749px) {
-  .media__banner {
-    height: 700px;
-  }
-}
-
-@media screen and (min-width:749px) {
-  .banner {
-    height: 1500px;
-  }
-}
-
-
-
 .body {
   padding: 5px;
 }
