@@ -109,11 +109,34 @@
       "settings": {
         "title": ""
       }
+    },
+    "banner_slider_pxm9qA": {
+      "type": "banner-slider",
+      "blocks": {
+        "slide_VUQNUJ": {
+          "type": "slide",
+          "settings": {
+          }
+        },
+        "slide_qCwdTn": {
+          "type": "slide",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "slide_VUQNUJ",
+        "slide_qCwdTn"
+      ],
+      "settings": {
+        "title": ""
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "banner_slider_bWpzAj"
+    "banner_slider_bWpzAj",
+    "banner_slider_pxm9qA"
   ]
 }

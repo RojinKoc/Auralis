@@ -107,52 +107,62 @@
 </div>
 
 <script>
-  // Tüm slaytları seç
-  const slides = document.querySelectorAll('.slide-{{ section.id }}');
-  const paginationDotsContainer = document.querySelector('.pagination-dots-{{ section.id }}');
-  let currentSlideIndex = 0;
+  document.addEventListener('DOMContentLoaded', function () {
+    // Slaytlar için benzersiz section ID'si ekliyoruz
+    const sectionId = "{{ section.id }}";
+    const slides = document.querySelectorAll(`.slide-${sectionId}`);
+    const paginationDotsContainer = document.querySelector(`.pagination-dots-${sectionId}`);
+    let currentSlideIndex = 0;
 
-  // İlk slaytı aktif olarak ayarla
-  slides[currentSlideIndex].classList.add('active-{{ section.id }}');
-
-  slides.forEach((slide, index) => {
-    const dot = document.createElement('button');
-    if (index === currentSlideIndex) {
-      dot.classList.add('active');
+    // İlk slaytı aktif olarak ayarla
+    if (slides.length > 0) {
+      slides[currentSlideIndex].classList.add(`active-${sectionId}`);
     }
-    dot.addEventListener('click', () => {
-      updateSlide(index);
+
+    slides.forEach((slide, index) => {
+      const dot = document.createElement('button');
+      if (index === currentSlideIndex) {
+        dot.classList.add('active');
+      }
+      dot.addEventListener('click', () => {
+        updateSlide(index);
+      });
+      paginationDotsContainer.appendChild(dot);
     });
-    paginationDotsContainer.appendChild(dot);
+
+    const paginationDots = document.querySelectorAll(`.pagination-dots-${sectionId} button`);
+
+    const updateSlide = (newIndex) => {
+      slides[currentSlideIndex].classList.remove(`active-${sectionId}`);
+      paginationDots[currentSlideIndex].classList.remove('active');
+
+      currentSlideIndex = newIndex;
+
+      slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+      paginationDots[currentSlideIndex].classList.add('active');
+    };
+
+    // Sonraki slayta geçiş fonksiyonu
+    const nextSlide = () => {
+      const newIndex = (currentSlideIndex + 1) % slides.length;
+      updateSlide(newIndex);
+    };
+
+    // Önceki slayta geçiş fonksiyonu
+    const prevSlide = () => {
+      const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      updateSlide(newIndex);
+    };
+
+    // Butonlara tıklama olaylarını ekle
+    const nextButton = document.getElementById(`next-${sectionId}`);
+    const prevButton = document.getElementById(`prev-${sectionId}`);
+
+    if (nextButton && prevButton) {
+      nextButton.addEventListener('click', nextSlide);
+      prevButton.addEventListener('click', prevSlide);
+    }
   });
-
-  const paginationDots = document.querySelectorAll('.pagination-dots-{{ section.id }} button');
-
-  const updateSlide = (newIndex) => {
-    slides[currentSlideIndex].classList.remove('active-{{ section.id }}');
-    paginationDots[currentSlideIndex].classList.remove('active');
-    
-    currentSlideIndex = newIndex;
-
-    slides[currentSlideIndex].classList.add('active-{{ section.id }}');
-    paginationDots[currentSlideIndex].classList.add('active');
-  };
-
-  // Sonraki slayta geçiş fonksiyonu
-  const nextSlide = () => {
-    const newIndex = (currentSlideIndex + 1) % slides.length;
-    updateSlide(newIndex);
-  };
-
-  // Önceki slayta geçiş fonksiyonu
-  const prevSlide = () => {
-    const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    updateSlide(newIndex);
-  };
-
-  // Butonlara tıklama olaylarını ekle
-  document.getElementById('next-{{ section.id }}').addEventListener('click', nextSlide);
-  document.getElementById('prev-{{ section.id }}').addEventListener('click', prevSlide);
 </script>
 
 {% schema %}
