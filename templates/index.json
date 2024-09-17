@@ -116,11 +116,13 @@
         "slide_VUQNUJ": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/2.jpg"
           }
         },
         "slide_qCwdTn": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/1.jpg"
           }
         }
       },
