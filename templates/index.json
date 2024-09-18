@@ -115,23 +115,30 @@
     "banner_slider_bWpzAj": {
       "type": "banner-slider",
       "blocks": {
+        "slide_VMjHMc": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
+          }
+        },
+        "slide_6xYdEt": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/WhatsApp_Image_2024-08-15_at_14.50.02.jpg"
+          }
+        },
         "slide_77VNkM": {
           "type": "slide",
           "settings": {
             "image_1": "shopify:\/\/shop_images\/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
             "image_2": "shopify:\/\/shop_images\/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
           }
-        },
-        "slide_VMjHMc": {
-          "type": "slide",
-          "settings": {
-            "image_1": "shopify:\/\/shop_images\/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
-          }
         }
       },
       "block_order": [
-        "slide_77VNkM",
-        "slide_VMjHMc"
+        "slide_VMjHMc",
+        "slide_6xYdEt",
+        "slide_77VNkM"
       ],
       "settings": {
         "title": ""
