@@ -95,7 +95,7 @@
           <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="half-image">
           <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="Second Image" class="half-image">
         </div>
-      {% elsif block.settings.image_1 != blank %}
+      {% else %}
         <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="full-image">
       {% endif %}
     </div>
