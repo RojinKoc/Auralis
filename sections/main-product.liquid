@@ -568,6 +568,58 @@
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                   render 'share-button', block: block, share_link: share_url
                 %}
+                <ul class="list-social">
+                  <!-- Facebook Share -->
+                  <li class="list-social__item">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}" class="link list-social__link" target="_blank">
+                      {%- render 'icon-facebook' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                    </a>
+                  </li>
+                
+                  <!-- Twitter Share -->
+                  <li class="list-social__item">
+                    <a href="https://twitter.com/share?url={{ share_url }}" class="link list-social__link" target="_blank">
+                      {%- render 'icon-twitter' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                    </a>
+                  </li>
+                
+                  <!-- Pinterest Share -->
+                  <li class="list-social__item">
+                    <a href="https://pinterest.com/pin/create/button/?url={{ share_url }}" class="link list-social__link" target="_blank">
+                      {%- render 'icon-pinterest' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                    </a>
+                  </li>
+                
+                  <!-- Instagram Share -->
+                  <li class="list-social__item">
+                    <a href="https://www.instagram.com/?url={{ share_url }}" class="link list-social__link" target="_blank">
+                      {%- render 'icon-instagram' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                    </a>
+                  </li>
+                
+                  <!-- Copy Link Button -->
+                  <li class="list-social__item">
+                    <button id="copy-link-btn" class="link list-social__link"> 
+                      {%- render 'icon-link' -%}
+                      <span class="visually-hidden">Copy Link</span>
+                    </button>
+                    <input type="text" value="{{ share_url }}" id="product-link" style="opacity: 0; position: absolute;">
+                  </li>
+                </ul>
+                
+                <script>
+                  document.getElementById('copy-link-btn').onclick = function() {
+                    var copyText = document.getElementById('product-link');
+                    copyText.select();
+                    document.execCommand('copy');
+                    alert('Link copied to clipboard!');
+                  }
+                </script>
+                
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
