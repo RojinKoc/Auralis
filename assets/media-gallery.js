@@ -115,21 +115,3 @@ if (!customElements.get('media-gallery')) {
     }
   );
 }
-onSlideChanged() {
-  const currentSlide = detail.currentElement;
-  const slides = Array.from(this.elements.viewer.querySelectorAll('[data-media-id]'));
-  
-  // Son slayta gelindiyse başa döner
-  if (currentSlide === slides[slides.length - 1]) {
-    this.setActiveMedia(slides[0].dataset.mediaId, false);
-  } else if (currentSlide === slides[0]) {
-    // İsteğe bağlı olarak geriye doğru döngüyü de yönetir
-    this.setActiveMedia(slides[slides.length - 1].dataset.mediaId, false);
-  }
-
-  // Thumbnail'leri yönetmeye devam eder
-  const thumbnail = this.elements.thumbnails.querySelector(
-    `[data-target="${currentSlide.dataset.mediaId}"]`
-  );
-  this.setActiveThumbnail(thumbnail);
-}
