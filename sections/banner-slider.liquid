@@ -97,6 +97,9 @@
   {% for block in section.blocks %}
     <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
       <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
+      {% if block.settings.image_2 != blank %}
+        <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="Second Image">
+      {% endif %}
     </div>
   {% endfor %}
   <div class="pagination-dots-{{ section.id }}"></div> 
@@ -183,8 +186,13 @@
        "settings": [
          {
            "type": "image_picker",
-           "id": "image",
-           "label": "Image"
+           "id": "image_1",
+           "label": "First Image"
+         },
+         {
+           "type": "image_picker",
+           "id": "image_2",
+           "label": "Second Image"
          }
        ]
      }
