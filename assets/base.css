@@ -3763,18 +3763,34 @@ ul#Slider-Thumbnails-template--22661505712424__main li {
   color:black;
 } */
 
-/* Code for Desktop Banner */
+/* Code for Desktop Banner slider */
 @media screen and (max-width: 480px){
   .swiper-template--18267085897987__banner_slider_bWpzAj {
     display: none;
 }}
 
-/* Code for Mobile Banner */
+/* Code for Mobile Banner slider */
 @media screen and (max-width: 480px) {
   .swiper-template--18267085897987__banner_slider_pxm9qA{
     display: block !important;
 }}
 
 .swiper-template--18267085897987__banner_slider_pxm9qA {
+    display: none;
+}
+
+/* Code for Desktop Banner */
+@media screen and (max-width: 480px){
+  #Banner-template--18267085897987__image_banner {
+    display: none;
+}}
+
+/* Code for Mobile Banner */
+@media screen and (max-width: 480px) {
+  #Banner-template--18267085897987__image_banner_NYxECw{
+    display: block !important;
+}}
+
+#Banner-template--18267085897987__image_banner_NYxECw{
     display: none;
 }
