@@ -1,107 +1,106 @@
 <style>
-  .swiper-{{ section.id }} {
-    position: relative;
-    width: 100%;
-    height: 100vH;
-    overflow: hidden;
-    margin-bottom: 30px;
+  /* Tek görsel varsa tüm ekranı kaplayacak */
+.full-image {
+  display: block;
+  width: 100%;
+  height: 100vh; /* Tüm ekran yüksekliği */
+  object-fit: cover; /* Görselin tam olarak ekrana sığması */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* İki görsel varsa ekranı ikiye bölecek */
+.half-image-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+}
+
+.half-image {
+  width: 50%; /* Ekranın yarısını kaplayacak */
+  height: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Sağ ve sol ortadaki butonlar */
+.indicators-{{ section.id }} button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+#prev-{{ section.id }} {
+  left: 20px;
+}
+
+#next-{{ section.id }} {
+  right: 20px;
+}
+
+/* Pagination dots */
+.pagination-dots-{{ section.id }} {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-dots-{{ section.id }} button {
+  width: 12px;
+  height: 12px;
+  background-color: grey;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination-dots-{{ section.id }} button.active {
+  background-color: black;
+}
+
+/* Mobil cihazlar için özel stiller */
+@media (max-width: 768px) {
+  .full-image,
+  .half-image {
+    height: 50vh; /* Mobilde her görsel için ekranın yarısını kaplayacak */
   }
 
-  .slide-{{ section.id }} {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity .2s linear;
-  }
-
-  .active-{{ section.id }} {
-    opacity: 1;
-  }
-
-  .slide-{{ section.id }} img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-  }
-
-  /* Sağ ve sol ortadaki butonlar */
   .indicators-{{ section.id }} button {
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px;
-    background-color: transparent;
-    color: black;
-    border: none;
-    cursor: pointer;
   }
-
-  #prev-{{ section.id }} {
-    left: 20px;
-  }
-
-  #next-{{ section.id }} {
-    right: 20px;
-  }
-
-  /* Mobil cihazlar için özel stiller */
-  @media (max-width: 768px) {
-    .swiper-{{ section.id }} {
-      height: 100vh;
-    }
-
-    .slide-{{ section.id }} img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    .indicators-{{ section.id }} button {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-
-  /* Pagination dots */
-  .pagination-dots-{{ section.id }} {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-  }
-
-  .pagination-dots-{{ section.id }} button {
-    width: 12px;
-    height: 12px;
-    background-color: grey;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-  }
-
-  .pagination-dots-{{ section.id }} button.active {
-    background-color: black;
-  }
+}
 </style>
 
 <div class="swiper-{{ section.id }}">
   {% for block in section.blocks %}
     <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
-      <img src="{{ block.settings.image | img_url: 'master'}}" alt="{{ block.settings.text }}">
-      {% if block.settings.image_2 != blank %}
-        <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="Second Image">
+      <!-- Tek veya iki görselin durumuna göre farklı class ekle -->
+      {% if block.settings.image_1 != blank and block.settings.image_2 != blank %}
+        <div class="half-image-container">
+          <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="half-image">
+          <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="Second Image" class="half-image">
+        </div>
+      {% elsif block.settings.image_1 != blank %}
+        <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="full-image">
       {% endif %}
     </div>
   {% endfor %}
+  
   <div class="pagination-dots-{{ section.id }}"></div> 
   <div class="indicators-{{ section.id }}">
     <button id="prev-{{ section.id }}">&#10094;</button>
@@ -124,6 +123,7 @@
 
     slides.forEach((slide, index) => {
       const dot = document.createElement('button');
+      dot.classList.add('pagination-dot');
       if (index === currentSlideIndex) {
         dot.classList.add('active');
       }
@@ -145,19 +145,16 @@
       paginationDots[currentSlideIndex].classList.add('active');
     };
 
-    // Sonraki slayta geçiş fonksiyonu
     const nextSlide = () => {
       const newIndex = (currentSlideIndex + 1) % slides.length;
       updateSlide(newIndex);
     };
 
-    // Önceki slayta geçiş fonksiyonu
     const prevSlide = () => {
       const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
       updateSlide(newIndex);
     };
 
-    // Butonlara tıklama olaylarını ekle
     const nextButton = document.getElementById(`next-${sectionId}`);
     const prevButton = document.getElementById(`prev-${sectionId}`);
 
@@ -176,30 +173,32 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Slideshow"
+      "label": "Slideshow Title",
+      "default": "Welcome to our Store"
     }
   ],
   "blocks": [
-     {
-       "name": "Slide",
-       "type": "slide",
-       "settings": [
-         {
-           "type": "image_picker",
-           "id": "image_1",
-           "label": "First Image"
-         },
-         {
-           "type": "image_picker",
-           "id": "image_2",
-           "label": "Second Image"
-         }
-       ]
-     }
-   ],
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "First Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Second Image"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Sliders"
+      "name": "Sliders",
+      "category": "Slideshow"
     }
   ]
 }
