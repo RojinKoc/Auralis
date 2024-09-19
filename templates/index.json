@@ -158,11 +158,19 @@
           "settings": {
             "image_1": "shopify:\/\/shop_images\/2.jpg"
           }
+        },
+        "slide_8wm8P9": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/1.jpg",
+            "image_2": "shopify:\/\/shop_images\/2.jpg"
+          }
         }
       },
       "block_order": [
         "slide_VUQNUJ",
-        "slide_E4QyY3"
+        "slide_E4QyY3",
+        "slide_8wm8P9"
       ],
       "custom_css": [
 
