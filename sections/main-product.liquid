@@ -611,15 +611,6 @@
                   </li>
                 </ul>
                 
-                <script>
-                  document.getElementById('copy-link-btn').onclick = function() {
-                    var copyText = document.getElementById('product-link');
-                    copyText.select();
-                    document.execCommand('copy');
-                    alert('Link copied to clipboard!');
-                  }
-                </script>
-                
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
@@ -893,6 +884,14 @@
   function updateQuantityDisplay(value) {
     quantityDisplay.textContent = value;
     console.log('Quantity Display:', value);
+  }
+</script>
+<script>
+  document.getElementById('copy-link-btn').onclick = function() {
+    var copyText = document.getElementById('product-link');
+    copyText.select();
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
   }
 </script>
 
