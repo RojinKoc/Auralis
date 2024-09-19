@@ -137,6 +137,20 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var agreeCheckbox = document.getElementById('agree');
+    var checkoutButton = document.getElementById('checkout');
+
+    // Disable the checkout button initially
+    checkoutButton.disabled = true;
+
+    agreeCheckbox.addEventListener('change', function() {
+      checkoutButton.disabled = !this.checked;
+    });
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-cart-footer.name",
