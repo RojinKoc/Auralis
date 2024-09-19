@@ -184,6 +184,16 @@
       nextButton.addEventListener('click', nextSlide);
       prevButton.addEventListener('click', prevSlide);
     }
+     // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
+    const autoSlideInterval = setInterval(nextSlide, 3000);
+
+    // Otomatik geçişi sıfırlamak için fonksiyon
+    const resetAutoSlide = () => {
+      clearInterval(autoSlideInterval);
+      setTimeout(() => {
+        setInterval(nextSlide, 3000);
+      }, 3000); // 3 saniye bekleyip tekrar başlat
+    };
   });
 </script>
 
