@@ -564,6 +564,7 @@
                   </button>
                 </modal-opener>
               {%- when 'share' -%}
+                <div>
                 {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                   render 'share-button', block: block, share_link: share_url
@@ -610,7 +611,7 @@
                     <input type="text" value="{{ share_url }}" id="product-link" style="opacity: 0; position: absolute;">
                   </li>
                 </ul>
-                
+                </div>
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
