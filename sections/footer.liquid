@@ -154,7 +154,7 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
-                    {% comment %}
+                    
                       {%- when 'newsletter' -%}
                       <div class="footer-block__newsletter">
                         {%- if block.settings.newsletter_heading != blank -%}
@@ -182,8 +182,8 @@
                           </div>
                         {%- endform -%}
                       </div>
-                    {% endcomment %}
-                {%- endcase -%}
+            
+                  {%- endcase -%}
               </div>
             {%- endfor -%}
           </div>
