@@ -115,3 +115,14 @@ if (!customElements.get('media-gallery')) {
     }
   );
 }
+onSlideChanged(event) {
+  const thumbnail = this.elements.thumbnails.querySelector(
+    `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
+  );
+  this.setActiveThumbnail(thumbnail);
+
+  // Eğer son görsele ulaştıysanız, başa dönmek için bu kısmı ekleyin:
+  if (event.detail.currentElement === this.elements.viewer.lastElementChild) {
+    this.elements.viewer.firstElementChild.scrollIntoView({ behavior: 'smooth' });
+  }
+}
