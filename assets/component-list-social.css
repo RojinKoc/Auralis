@@ -38,13 +38,11 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  display: flex;
 }
 
 .list-social__item button .icon {
   width: 20px;
   height: 20px;
-  fill: currentColor;
 }
 
 .list-social__link {
