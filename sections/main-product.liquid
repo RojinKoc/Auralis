@@ -634,9 +634,8 @@
                         {%- render 'icon-arrow'-%}
                         <span>Copy Link</span>
                       </button> {% endcomment %}
-                      <button onclick="myFunction()">
+                      <button id="copy-url-btn">
                         {%- render 'icon-share'-%}
-                        <span>Kopyalandı!</span>
                       </button>
 
                     </li>
@@ -928,20 +927,22 @@
   }
 </script> {% endcomment %}
 <script>
-  function myFunction() {
-    // Get the text field
-    var copyText = document.getElementById("myInput");
-  
-    // Select the text field
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); // For mobile devices
-  
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value);
-  
+  // Butona tıklanınca URL'yi kopyalayan fonksiyon
+  document.getElementById('copy-url-btn').onclick = function() {
+    // Sayfanın geçerli URL'sini al
+    const pageUrl = window.location.href;
+    
+    // URL'yi clipboard'a kopyala
+    navigator.clipboard.writeText(pageUrl)
+    .then(() => {
+      alert('Page URL copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy URL: ', err);
+    });
   }
-  </script>
-  
+</script>
+
 
 {% schema %}
 {
