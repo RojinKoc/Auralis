@@ -573,8 +573,6 @@
                   </button>
                 </modal-opener>
               {%- when 'share' -%}
-                <input type="text" value="{{ share_url }}" id="product-link" style="visibility: hidden; position: absolute;">
-
                 <div class="share-div">
                   {% liquid
                     assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
