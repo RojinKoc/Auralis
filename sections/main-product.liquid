@@ -573,6 +573,8 @@
                   </button>
                 </modal-opener>
               {%- when 'share' -%}
+                <input type="text" value="{{ share_url }}" id="product-link" style="visibility: hidden; position: absolute;">
+
                 <div class="share-div">
                   {% liquid
                     assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -633,12 +635,6 @@
                         {%- render 'icon-share' -%}
                         <span class="visually-hidden">Copy Link</span>
                       </button>
-                      <input
-                        type="text"
-                        value="{{ share_url }}"
-                        id="product-link"
-                        style="opacity: 1; position: absolute;"
-                      >
                     </li>
                   </ul>
                 </div>
@@ -919,13 +915,15 @@
 </script>
 <script>
   document.getElementById('copy-link-btn').onclick = function() {
-    var copyText = document.getElementById('product-link');
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    document.execCommand('copy');
-    alert('Link copied to clipboard!');
+    var copyText = document.getElementById('product-link').value;
+    navigator.clipboard.writeText(copyText).then(() => {
+      alert('Link copied to clipboard!');
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+    });
   }
 </script>
+
 
 {% schema %}
 {
