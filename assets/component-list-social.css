@@ -32,3 +32,33 @@
 .list-social__link:hover .icon {
   transform: scale(1.07);
 }
+/* Copy link butonunun da diğer sosyal medya ikonlarıyla uyumlu görünmesi için */
+.list-social__item button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.list-social__item button .icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.list-social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: rgb(var(--color-foreground));
+  height: 20px;
+  width: 20px;
+  box-sizing: revert;
+}
+
+.list-social__link:hover .icon {
+  transform: scale(1.07);
+}
+
+
