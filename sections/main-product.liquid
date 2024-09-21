@@ -626,13 +626,19 @@
                         <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
                       </a>
                     </li>
+                    
 
                     <!-- Copy Link Button -->
                     <li class="list-social__item">
-                      <button id="copy-link-btn" class="link list-social__link">
+                      {% comment %} <button id="copy-link-btn" class="link list-social__link">
                         {%- render 'icon-arrow'-%}
                         <span>Copy Link</span>
+                      </button> {% endcomment %}
+                      <button onclick="myFunction()">
+                        {%- render 'icon-share'-%}
+                        <span>Kopyalandı!</span>
                       </button>
+
                     </li>
                   </ul>
                 </div>
@@ -911,7 +917,7 @@
     console.log('Quantity Display:', value);
   }
 </script>
-<script>
+{% comment %} <script>
   document.getElementById('copy-link-btn').onclick = function() {
     var copyText = document.getElementById('product-link').value;
     navigator.clipboard.writeText(copyText).then(() => {
@@ -920,8 +926,22 @@
       console.error('Could not copy text: ', err);
     });
   }
-</script>
-
+</script> {% endcomment %}
+<script>
+  function myFunction() {
+    // Get the text field
+    var copyText = document.getElementById("myInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+  }
+  </script>
+  
 
 {% schema %}
 {
