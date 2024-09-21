@@ -38,6 +38,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  display: flex;
 }
 
 .list-social__item button .icon {
