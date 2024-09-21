@@ -918,12 +918,13 @@
   }
 </script>
 <script>
-  document.getElementById('copy-link-btn').onclick = function () {
+  document.getElementById('copy-link-btn').onclick = function() {
     var copyText = document.getElementById('product-link');
     copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
     document.execCommand('copy');
     alert('Link copied to clipboard!');
-  };
+  }
 </script>
 
 {% schema %}
