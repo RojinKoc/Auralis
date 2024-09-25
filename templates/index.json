@@ -16,7 +16,8 @@
           "type": "heading",
           "settings": {
             "heading": "2024 Sonbahar Koleksiyonu",
-            "heading_size": "h0"
+            "heading_size": "h0",
+            "heading_font": "Arial"
           }
         },
         "button": {
@@ -118,20 +119,26 @@
         "slide_VMjHMc": {
           "type": "slide",
           "settings": {
-            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
+            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg",
+            "header_text": "Header Text Here",
+            "header_position": "bottom-right"
           }
         },
         "slide_6xYdEt": {
           "type": "slide",
           "settings": {
-            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg"
+            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
+            "header_text": "Header Text Here",
+            "header_position": "top-right"
           }
         },
         "slide_77VNkM": {
           "type": "slide",
           "settings": {
             "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
-            "image_2": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
+            "image_2": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg",
+            "header_text": "Header Text Here",
+            "header_position": "middle-center"
           }
         }
       },
@@ -150,20 +157,26 @@
         "slide_VUQNUJ": {
           "type": "slide",
           "settings": {
-            "image_1": "shopify://shop_images/1.jpg"
+            "image_1": "shopify://shop_images/1.jpg",
+            "header_text": "Header Text Here",
+            "header_position": "middle-center"
           }
         },
         "slide_E4QyY3": {
           "type": "slide",
           "settings": {
-            "image_1": "shopify://shop_images/2.jpg"
+            "image_1": "shopify://shop_images/2.jpg",
+            "header_text": "Header Text Here",
+            "header_position": "middle-center"
           }
         },
         "slide_8wm8P9": {
           "type": "slide",
           "settings": {
             "image_1": "shopify://shop_images/1.jpg",
-            "image_2": "shopify://shop_images/2.jpg"
+            "image_2": "shopify://shop_images/2.jpg",
+            "header_text": "Header Text Here",
+            "header_position": "middle-center"
           }
         }
       },
