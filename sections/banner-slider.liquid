@@ -113,7 +113,7 @@
   {% for block in section.blocks %}
     <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
 
-      {% if block.settings.header_text != blank %}
+      {% if block.settings.header_text != "" %}
         <div class="header-container banner__content--{{ block.settings.header_position }}">
           {{ block.settings.header_text }}
         </div>
