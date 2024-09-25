@@ -1,113 +1,112 @@
 <style>
- .swiper-container {
-  position: relative; /* İçindeki elemanların doğru konumlanması için relative */
-  width: 100%;
-  height: 100vh; /* Tüm slider alanı ekranı kaplasın */
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.slide-{{ section.id }} {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Geçiş efektini biraz yumuşatalım */
-}
-
-.active-{{ section.id }} {
-  opacity: 1; /* Aktif olan slide görünür */
-}
-
-.full-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-/* İki görseli yan yana koymak için flex yapısını kullanıyoruz */
-.half-image-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.half-image {
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-/* Sağ ve sol oklar sliderın içinde ve ortalanmış olacak şekilde */
-.indicators-{{ section.id }} button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  background-color: transparent;
-  color: black;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-#prev-{{ section.id }} {
-  left: 20px;
-}
-
-#next-{{ section.id }} {
-  right: 20px;
-}
-
-/* Pagination dots slider içinde alt kısımda ortalanmış olacak */
-.pagination-dots-{{ section.id }} {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-}
-
-.pagination-dots-{{ section.id }} button {
-  width: 12px;
-  height: 12px;
-  background-color: grey;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-.pagination-dots-{{ section.id }} button.active {
-  background-color: black;
-}
-
-/* Mobil cihazlar için özel stiller */
-@media (max-width: 768px) {
-  .swiper-container {
-    height: 100vh;
+   .swiper-container {
+    position: relative; /* İçindeki elemanların doğru konumlanması için relative */
+    width: 100%;
+    height: 100vh; /* Tüm slider alanı ekranı kaplasın */
+    overflow: hidden;
+    margin-bottom: 30px;
   }
 
-  .full-image,
+  .slide-{{ section.id }} {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Geçiş efektini biraz yumuşatalım */
+  }
+
+  .active-{{ section.id }} {
+    opacity: 1; /* Aktif olan slide görünür */
+  }
+
+  .full-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  /* İki görseli yan yana koymak için flex yapısını kullanıyoruz */
+  .half-image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
   .half-image {
-    height: 100vh; /* Mobilde her görsel %50 yükseklik kaplayacak */
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
   }
 
+  /* Sağ ve sol oklar sliderın içinde ve ortalanmış olacak şekilde */
   .indicators-{{ section.id }} button {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 30px;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
   }
-}
 
+  #prev-{{ section.id }} {
+    left: 20px;
+  }
+
+  #next-{{ section.id }} {
+    right: 20px;
+  }
+
+  /* Pagination dots slider içinde alt kısımda ortalanmış olacak */
+  .pagination-dots-{{ section.id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .pagination-dots-{{ section.id }} button {
+    width: 12px;
+    height: 12px;
+    background-color: grey;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .pagination-dots-{{ section.id }} button.active {
+    background-color: black;
+  }
+
+  /* Mobil cihazlar için özel stiller */
+  @media (max-width: 768px) {
+    .swiper-container {
+      height: 100vh;
+    }
+
+    .full-image,
+    .half-image {
+      height: 100vh; /* Mobilde her görsel %50 yükseklik kaplayacak */
+    }
+
+    .indicators-{{ section.id }} button {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
 </style>
 
 <div class="swiper-{{ section.id }} swiper-container">
@@ -124,7 +123,7 @@
       {% endif %}
     </div>
   {% endfor %}
-  <div class="pagination-dots-{{ section.id }}"></div> 
+  <div class="pagination-dots-{{ section.id }}"></div>
   <div class="indicators-{{ section.id }}">
     <button id="prev-{{ section.id }}">&#10094;</button>
     <button id="next-{{ section.id }}">&#10095;</button>
@@ -133,7 +132,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const sectionId = "{{ section.id }}";
+    const sectionId = '{{ section.id }}';
     const slides = document.querySelectorAll(`.slide-${sectionId}`);
     const paginationDotsContainer = document.querySelector(`.pagination-dots-${sectionId}`);
     let currentSlideIndex = 0;
@@ -184,7 +183,7 @@
       nextButton.addEventListener('click', nextSlide);
       prevButton.addEventListener('click', prevSlide);
     }
-     // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
+    // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
     const autoSlideInterval = setInterval(nextSlide, 3000);
 
     // Otomatik geçişi sıfırlamak için fonksiyon
@@ -196,7 +195,6 @@
     };
   });
 </script>
-
 
 {% schema %}
 {
@@ -224,6 +222,29 @@
           "type": "image_picker",
           "id": "image_2",
           "label": "Second Image"
+        },
+        {
+          "type": "text",
+          "id": "header_text",
+          "label": "Header Text",
+          "default": ""
+        },
+        {
+          "type": "select",
+          "id": "header_position",
+          "label": "Header Position",
+          "default": "middle-center",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ]
         }
       ]
     }
