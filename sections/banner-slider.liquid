@@ -112,6 +112,13 @@
 <div class="swiper-{{ section.id }} swiper-container">
   {% for block in section.blocks %}
     <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
+      
+      {% if block.settings.header_text != blank %}
+        <div class="header-container banner__content--{{ block.settings.header_position }}">
+          {{ block.settings.header_text }}
+        </div>
+      {% endif %}
+
       <!-- Tek veya iki görselin durumuna göre farklı class ekle -->
       {% if block.settings.image_1 != blank and block.settings.image_2 != blank %}
         <div class="half-image-container">
