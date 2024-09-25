@@ -112,7 +112,7 @@
 <div class="swiper-{{ section.id }} swiper-container">
   {% for block in section.blocks %}
     <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
-      
+
       {% if block.settings.header_text != blank %}
         <div class="header-container banner__content--{{ block.settings.header_position }}">
           {{ block.settings.header_text }}
@@ -218,7 +218,7 @@
   "blocks": [
     {
       "name": "Slide",
-      "type": "slide",
+      "type": "text",
       "settings": [
         {
           "type": "image_picker",
