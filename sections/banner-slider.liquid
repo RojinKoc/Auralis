@@ -454,70 +454,72 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const sectionId = '{{ section.id }}';
-    const slides = document.querySelectorAll(`.slide-${sectionId}`);
-    const paginationDotsContainer = document.querySelector(`.pagination-dots-${sectionId}`);
-    let currentSlideIndex = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const sectionId = '{{ section.id }}';
+  const slides = document.querySelectorAll(`.slide-${sectionId}`);
+  const paginationDotsContainer = document.querySelector(`.pagination-dots-${sectionId}`);
+  let currentSlideIndex = 0;
 
-    // İlk slaytı aktif olarak ayarla
-    if (slides.length > 0) {
-      slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+  // İlk slaytı aktif olarak ayarla
+  if (slides.length > 0) {
+    slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+  }
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('button');
+    dot.classList.add('pagination-dot');
+    if (index === currentSlideIndex) {
+      dot.classList.add('active');
     }
-
-    slides.forEach((slide, index) => {
-      const dot = document.createElement('button');
-      dot.classList.add('pagination-dot');
-      if (index === currentSlideIndex) {
-        dot.classList.add('active');
-      }
-      dot.addEventListener('click', () => {
-        updateSlide(index);
-      });
-      paginationDotsContainer.appendChild(dot);
+    dot.addEventListener('click', () => {
+      updateSlide(index);
     });
-
-    const paginationDots = document.querySelectorAll(`.pagination-dots-${sectionId} button`);
-
-    const updateSlide = (newIndex) => {
-      slides[currentSlideIndex].classList.remove(`active-${sectionId}`);
-      paginationDots[currentSlideIndex].classList.remove('active');
-
-      currentSlideIndex = newIndex;
-
-      slides[currentSlideIndex].classList.add(`active-${sectionId}`);
-      paginationDots[currentSlideIndex].classList.add('active');
-    };
-
-    const nextSlide = () => {
-      const newIndex = (currentSlideIndex + 1) % slides.length;
-      updateSlide(newIndex);
-    };
-
-    const prevSlide = () => {
-      const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-      updateSlide(newIndex);
-    };
-
-    const nextButton = document.getElementById(`next-${sectionId}`);
-    const prevButton = document.getElementById(`prev-${sectionId}`);
-
-    if (nextButton && prevButton) {
-      nextButton.addEventListener('click', nextSlide);
-      prevButton.addEventListener('click', prevSlide);
-    }
-
-    // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
-    const autoSlideInterval = setInterval(nextSlide, 3000);
-
-    // Otomatik geçişi sıfırlamak için fonksiyon
-    const resetAutoSlide = () => {
-      clearInterval(autoSlideInterval);
-      setTimeout(() => {
-        setInterval(nextSlide, 3000);
-      }, 3000); // 3 saniye bekleyip tekrar başlat
-    };
+    paginationDotsContainer.appendChild(dot);
   });
+
+  const paginationDots = document.querySelectorAll(`.pagination-dots-${sectionId} button`);
+
+  const updateSlide = (newIndex) => {
+    // Aktif slayttan sınıfları kaldır
+    slides[currentSlideIndex].classList.remove(`active-${sectionId}`);
+    paginationDots[currentSlideIndex].classList.remove('active');
+
+    // Yeni slaytı aktif yap
+    currentSlideIndex = newIndex;
+
+    slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+    paginationDots[currentSlideIndex].classList.add('active');
+  };
+
+  const nextSlide = () => {
+    const newIndex = (currentSlideIndex + 1) % slides.length;
+    updateSlide(newIndex);
+  };
+
+  const prevSlide = () => {
+    const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    updateSlide(newIndex);
+  };
+
+  const nextButton = document.getElementById(`next-${sectionId}`);
+  const prevButton = document.getElementById(`prev-${sectionId}`);
+
+  if (nextButton && prevButton) {
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+  }
+
+  // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
+  const autoSlideInterval = setInterval(nextSlide, 3000);
+
+  // Otomatik geçişi sıfırlamak için fonksiyon
+  const resetAutoSlide = () => {
+    clearInterval(autoSlideInterval);
+    setTimeout(() => {
+      setInterval(nextSlide, 3000);
+    }, 3000); // 3 saniye bekleyip tekrar başlat
+  };
+});
 </script>
 
 {% schema %}
