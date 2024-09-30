@@ -120,7 +120,7 @@
           "type": "slide",
           "settings": {
             "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg",
-            "header_text": "Header Text Here",
+            "header_text": "Hello",
             "header_position": "bottom-right"
           }
         },
@@ -128,7 +128,7 @@
           "type": "slide",
           "settings": {
             "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
-            "header_text": "Header Text Here",
+            "header_text": "Helloo",
             "header_position": "top-right"
           }
         },
@@ -137,7 +137,7 @@
           "settings": {
             "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
             "image_2": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg",
-            "header_text": "Header Text Here",
+            "header_text": "helloo",
             "header_position": "middle-left"
           }
         }
