@@ -1,241 +1,242 @@
 <style>
- .swiper-container {
-  position: relative; /* İçindeki elemanların doğru konumlanması için relative */
-  width: 100%;
-  height: 100vh; /* Tüm slider alanı ekranı kaplasın */
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.slide-{{ section.id }} {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Geçiş efektini biraz yumuşatalım */
-}
-
-.active-{{ section.id }} {
-  opacity: 1; /* Aktif olan slide görünür */
-}
-
-.full-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-/* İki görseli yan yana koymak için flex yapısını kullanıyoruz */
-.half-image-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.half-image {
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-/* Sağ ve sol oklar sliderın içinde ve ortalanmış olacak şekilde */
-.indicators-{{ section.id }} button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  background-color: transparent;
-  color: black;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-#prev-{{ section.id }} {
-  left: 20px;
-}
-
-#next-{{ section.id }} {
-  right: 20px;
-}
-
-/* Pagination dots slider içinde alt kısımda ortalanmış olacak */
-.pagination-dots-{{ section.id }} {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-}
-
-.pagination-dots-{{ section.id }} button {
-  width: 12px;
-  height: 12px;
-  background-color: grey;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-.pagination-dots-{{ section.id }} button.active {
-  background-color: black;
-}
-
-/* Mobil cihazlar için özel stiller */
-@media (max-width: 768px) {
   .swiper-container {
-    height: 100vh;
-  }
-
-  .full-image,
-  .half-image {
-    height: 100vh; /* Mobilde her görsel %50 yükseklik kaplayacak */
-  }
-
-  .indicators-{{ section.id }} button {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-</style>
-
-<div class="swiper-{{ section.id }} swiper-container">
-  {% for block in section.blocks %}
-    <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
-      <!-- Tek veya iki görselin durumuna göre farklı class ekle -->
-      {% if block.settings.image_1 != blank and block.settings.image_2 != blank %}
-        <div class="half-image-container">
-          <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="half-image">
-          <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="Second Image" class="half-image">
-        </div>
-      {% elsif block.settings.image_1 != blank %}
-        <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="full-image">
-      {% endif %}
-    </div>
-  {% endfor %}
-  <div class="pagination-dots-{{ section.id }}"></div> 
-  <div class="indicators-{{ section.id }}">
-    <button id="prev-{{ section.id }}">&#10094;</button>
-    <button id="next-{{ section.id }}">&#10095;</button>
-  </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const sectionId = "{{ section.id }}";
-    const slides = document.querySelectorAll(.slide-${sectionId});
-    const paginationDotsContainer = document.querySelector(.pagination-dots-${sectionId});
-    let currentSlideIndex = 0;
-
-    // İlk slaytı aktif olarak ayarla
-    if (slides.length > 0) {
-      slides[currentSlideIndex].classList.add(active-${sectionId});
-    }
-
-    slides.forEach((slide, index) => {
-      const dot = document.createElement('button');
-      dot.classList.add('pagination-dot');
-      if (index === currentSlideIndex) {
-        dot.classList.add('active');
-      }
-      dot.addEventListener('click', () => {
-        updateSlide(index);
-      });
-      paginationDotsContainer.appendChild(dot);
-    });
-
-    const paginationDots = document.querySelectorAll(.pagination-dots-${sectionId} button);
-
-    const updateSlide = (newIndex) => {
-      slides[currentSlideIndex].classList.remove(active-${sectionId});
-      paginationDots[currentSlideIndex].classList.remove('active');
-
-      currentSlideIndex = newIndex;
-
-      slides[currentSlideIndex].classList.add(active-${sectionId});
-      paginationDots[currentSlideIndex].classList.add('active');
-    };
-
-    const nextSlide = () => {
-      const newIndex = (currentSlideIndex + 1) % slides.length;
-      updateSlide(newIndex);
-    };
-
-    const prevSlide = () => {
-      const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-      updateSlide(newIndex);
-    };
-
-    const nextButton = document.getElementById(next-${sectionId});
-    const prevButton = document.getElementById(prev-${sectionId});
-
-    if (nextButton && prevButton) {
-      nextButton.addEventListener('click', nextSlide);
-      prevButton.addEventListener('click', prevSlide);
-    }
-     // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
-    const autoSlideInterval = setInterval(nextSlide, 3000);
-
-    // Otomatik geçişi sıfırlamak için fonksiyon
-    const resetAutoSlide = () => {
-      clearInterval(autoSlideInterval);
-      setTimeout(() => {
-        setInterval(nextSlide, 3000);
-      }, 3000); // 3 saniye bekleyip tekrar başlat
-    };
-  });
-</script>
-
-
-{% schema %}
-{
-  "name": "Sliders",
-  "class": "slideshow",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Slideshow Title",
-      "default": "Welcome to our Store"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "Slide",
-      "type": "slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "First Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "Second Image"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Sliders",
-      "category": "Slideshow"
-    }
-  ]
-}
-{% endschema %} 
+   position: relative; /* İçindeki elemanların doğru konumlanması için relative */
+   width: 100%;
+   height: 100vh; /* Tüm slider alanı ekranı kaplasın */
+   overflow: hidden;
+   margin-bottom: 30px;
+ }
+ 
+ .slide-{{ section.id }} {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   opacity: 0;
+   transition: opacity 0.3s ease-in-out; /* Geçiş efektini biraz yumuşatalım */
+ }
+ 
+ .active-{{ section.id }} {
+   opacity: 1; /* Aktif olan slide görünür */
+ }
+ 
+ .full-image {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   image-rendering: -webkit-optimize-contrast;
+   image-rendering: -moz-crisp-edges;
+   image-rendering: crisp-edges;
+ }
+ 
+ /* İki görseli yan yana koymak için flex yapısını kullanıyoruz */
+ .half-image-container {
+   display: flex;
+   width: 100%;
+   height: 100%;
+ }
+ 
+ .half-image {
+   width: 50%;
+   height: 100%;
+   object-fit: cover;
+   image-rendering: -webkit-optimize-contrast;
+   image-rendering: -moz-crisp-edges;
+   image-rendering: crisp-edges;
+ }
+ 
+ /* Sağ ve sol oklar sliderın içinde ve ortalanmış olacak şekilde */
+ .indicators-{{ section.id }} button {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 30px;
+   background-color: transparent;
+   color: black;
+   padding: 10px;
+   border: none;
+   cursor: pointer;
+ }
+ 
+ #prev-{{ section.id }} {
+   left: 20px;
+ }
+ 
+ #next-{{ section.id }} {
+   right: 20px;
+ }
+ 
+ /* Pagination dots slider içinde alt kısımda ortalanmış olacak */
+ .pagination-dots-{{ section.id }} {
+   position: absolute;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   gap: 8px;
+ }
+ 
+ .pagination-dots-{{ section.id }} button {
+   width: 12px;
+   height: 12px;
+   background-color: grey;
+   border-radius: 50%;
+   border: none;
+   cursor: pointer;
+ }
+ 
+ .pagination-dots-{{ section.id }} button.active {
+   background-color: black;
+ }
+ 
+ /* Mobil cihazlar için özel stiller */
+ @media (max-width: 768px) {
+   .swiper-container {
+     height: 100vh;
+   }
+ 
+   .full-image,
+   .half-image {
+     height: 100vh; /* Mobilde her görsel %50 yükseklik kaplayacak */
+   }
+ 
+   .indicators-{{ section.id }} button {
+     top: 50%;
+     transform: translateY(-50%);
+   }
+ }
+ 
+ </style>
+ 
+ <div class="swiper-{{ section.id }} swiper-container">
+   {% for block in section.blocks %}
+     <div class="slide-{{ section.id }} {% if forloop.first %}active-{{ section.id }}{% endif %}">
+       <!-- Tek veya iki görselin durumuna göre farklı class ekle -->
+       {% if block.settings.image_1 != blank and block.settings.image_2 != blank %}
+         <div class="half-image-container">
+           <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="half-image">
+           <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="Second Image" class="half-image">
+         </div>
+       {% elsif block.settings.image_1 != blank %}
+         <img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="First Image" class="full-image">
+       {% endif %}
+     </div>
+   {% endfor %}
+   <div class="pagination-dots-{{ section.id }}"></div> 
+   <div class="indicators-{{ section.id }}">
+     <button id="prev-{{ section.id }}">&#10094;</button>
+     <button id="next-{{ section.id }}">&#10095;</button>
+   </div>
+ </div>
+ 
+ <script>
+   document.addEventListener('DOMContentLoaded', function () {
+     const sectionId = "{{ section.id }}";
+     const slides = document.querySelectorAll(`.slide-${sectionId}`);
+     const paginationDotsContainer = document.querySelector(`.pagination-dots-${sectionId}`);
+     let currentSlideIndex = 0;
+ 
+     // İlk slaytı aktif olarak ayarla
+     if (slides.length > 0) {
+       slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+     }
+ 
+     slides.forEach((slide, index) => {
+       const dot = document.createElement('button');
+       dot.classList.add('pagination-dot');
+       if (index === currentSlideIndex) {
+         dot.classList.add('active');
+       }
+       dot.addEventListener('click', () => {
+         updateSlide(index);
+       });
+       paginationDotsContainer.appendChild(dot);
+     });
+ 
+     const paginationDots = document.querySelectorAll(`.pagination-dots-${sectionId} button`);
+ 
+     const updateSlide = (newIndex) => {
+       slides[currentSlideIndex].classList.remove(`active-${sectionId}`);
+       paginationDots[currentSlideIndex].classList.remove('active');
+ 
+       currentSlideIndex = newIndex;
+ 
+       slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+       paginationDots[currentSlideIndex].classList.add('active');
+     };
+ 
+     const nextSlide = () => {
+       const newIndex = (currentSlideIndex + 1) % slides.length;
+       updateSlide(newIndex);
+     };
+ 
+     const prevSlide = () => {
+       const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+       updateSlide(newIndex);
+     };
+ 
+     const nextButton = document.getElementById(`next-${sectionId}`);
+     const prevButton = document.getElementById(`prev-${sectionId}`);
+ 
+     if (nextButton && prevButton) {
+       nextButton.addEventListener('click', nextSlide);
+       prevButton.addEventListener('click', prevSlide);
+     }
+      // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
+     const autoSlideInterval = setInterval(nextSlide, 3000);
+ 
+     // Otomatik geçişi sıfırlamak için fonksiyon
+     const resetAutoSlide = () => {
+       clearInterval(autoSlideInterval);
+       setTimeout(() => {
+         setInterval(nextSlide, 3000);
+       }, 3000); // 3 saniye bekleyip tekrar başlat
+     };
+   });
+ </script>
+ 
+ 
+ {% schema %}
+ {
+   "name": "Sliders",
+   "class": "slideshow",
+   "settings": [
+     {
+       "type": "text",
+       "id": "title",
+       "label": "Slideshow Title",
+       "default": "Welcome to our Store"
+     }
+   ],
+   "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image_1",
+           "label": "First Image"
+         },
+         {
+           "type": "image_picker",
+           "id": "image_2",
+           "label": "Second Image"
+         }
+       ]
+     }
+   ],
+   "presets": [
+     {
+       "name": "Sliders",
+       "category": "Slideshow"
+     }
+   ]
+ }
+ {% endschema %}
+ 
 
 {% comment %} <style>
   .swiper-container {
