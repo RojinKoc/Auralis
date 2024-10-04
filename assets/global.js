@@ -798,15 +798,41 @@ class SliderComponent extends HTMLElement {
     return element.offsetLeft + element.clientWidth <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
   }
 
+  // onButtonClick(event) {
+  //   event.preventDefault();
+  //   const step = event.currentTarget.dataset.step || 1;
+  //   this.slideScrollPosition =
+  //     event.currentTarget.name === 'next'
+  //       ? this.slider.scrollLeft + step * this.sliderItemOffset
+  //       : this.slider.scrollLeft - step * this.sliderItemOffset;
+  //   this.setSlidePosition(this.slideScrollPosition);
+  // }
+
   onButtonClick(event) {
     event.preventDefault();
     const step = event.currentTarget.dataset.step || 1;
-    this.slideScrollPosition =
-      event.currentTarget.name === 'next'
-        ? this.slider.scrollLeft + step * this.sliderItemOffset
-        : this.slider.scrollLeft - step * this.sliderItemOffset;
+  
+    if (event.currentTarget.name === 'next') {
+      if (this.currentPage === this.sliderItemsToShow.length) {
+        // Eğer son kaydırıcıdaysak, ilk kaydırıcıya dön
+        this.slideScrollPosition = 0;
+      } else {
+        // Normal şekilde kaydır
+        this.slideScrollPosition = this.slider.scrollLeft + step * this.sliderItemOffset;
+      }
+    } else if (event.currentTarget.name === 'previous') {
+      if (this.currentPage === 1) {
+        // Eğer ilk kaydırıcıdaysak, son kaydırıcıya dön
+        this.slideScrollPosition = this.slider.scrollWidth - this.slider.clientWidth;
+      } else {
+        // Normal şekilde kaydır
+        this.slideScrollPosition = this.slider.scrollLeft - step * this.sliderItemOffset;
+      }
+    }
+  
     this.setSlidePosition(this.slideScrollPosition);
   }
+  
 
   setSlidePosition(position) {
     this.slider.scrollTo({
