@@ -2,21 +2,28 @@
     <div class="custom-swiper-wrapper">
         {% for block in section.blocks %}
         <div class="custom-swiper-slide">
-            <img src="{{ block.settings.image | img_url: '720x' }}" alt="Slide Image" class="custom-slide-image"/>
+            {% if block.settings.image %}
+                <img src="{{ block.settings.image | img_url: '720x' }}" alt="Slide Image" class="custom-slide-image"/>
+            {% endif %}
             <div class="custom-slide-content">
-                <h2>{{ block.settings.title }}</h2>
-                <p>{{ block.settings.text }}</p>
+                {% if block.settings.title %}
+                    <h2>{{ block.settings.title }}</h2>
+                {% endif %}
+                {% if block.settings.text %}
+                    <p>{{ block.settings.text }}</p>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
     </div>
-    
+
     <!-- Navigation Buttons -->
     <div class="custom-swiper-button-next"></div>
     <div class="custom-swiper-button-prev"></div>
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
     var customSwiper = new Swiper(".myCustomSwiper", {
         slidesPerView: 2,  // Aynı anda iki slide göster
         spaceBetween: 30,  // Slide'lar arası boşluk
@@ -26,12 +33,14 @@
         },
         loop: true
     });
+});
 </script>
 
 <style>
     .custom-swiper-container {
         width: 100%;
         height: 300px;
+        position: relative; /* Navigation buttonlarının slider içinde kalması için */
     }
 
     .custom-swiper-slide {
