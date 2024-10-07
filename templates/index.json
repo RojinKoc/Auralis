@@ -179,41 +179,12 @@
       "settings": {
         "title": ""
       }
-    },
-    "custom_swiper_xbqDqc": {
-      "type": "custom-swiper",
-      "blocks": {
-        "slide_DEh7D8": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/1.jpg",
-            "title": "Slide Title",
-            "text": "This is the slide description."
-          }
-        },
-        "slide_8pp3Tz": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/2.jpg",
-            "title": "Slide Title",
-            "text": "This is the slide description."
-          }
-        }
-      },
-      "block_order": [
-        "slide_DEh7D8",
-        "slide_8pp3Tz"
-      ],
-      "settings": {
-        "slider_heading": "Featured Products"
-      }
     }
   },
   "order": [
     "image_banner",
     "image_banner_NYxECw",
     "featured_collection",
-    "custom_swiper_xbqDqc",
     "banner_slider_bWpzAj",
     "banner_slider_pxm9qA"
   ]
