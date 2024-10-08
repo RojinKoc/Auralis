@@ -1,0 +1,191 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "2024 Sonbahar Koleksiyonu",
+            "heading_size": "h0",
+            "heading_font": "Arial"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "image": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "image_banner_NYxECw": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_EmxLK4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_EmxLK4"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/dce189eac47ae14c7e35d2aa3b29f58c.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "banner_slider_bWpzAj": {
+      "type": "banner-slider",
+      "blocks": {
+        "slide_VMjHMc": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
+          }
+        },
+        "slide_6xYdEt": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg"
+          }
+        },
+        "slide_77VNkM": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02.jpg",
+            "image_2": "shopify://shop_images/WhatsApp_Image_2024-08-15_at_14.50.02_1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slide_VMjHMc",
+        "slide_6xYdEt",
+        "slide_77VNkM"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "banner_slider_pxm9qA": {
+      "type": "banner-slider",
+      "blocks": {
+        "slide_VUQNUJ": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify://shop_images/1.jpg"
+          }
+        },
+        "slide_E4QyY3": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify://shop_images/2.jpg"
+          }
+        },
+        "slide_8wm8P9": {
+          "type": "slide",
+          "settings": {
+            "image_1": "shopify://shop_images/1.jpg",
+            "image_2": "shopify://shop_images/2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slide_VUQNUJ",
+        "slide_E4QyY3",
+        "slide_8wm8P9"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "image_banner_NYxECw",
+    "featured_collection",
+    "banner_slider_bWpzAj",
+    "banner_slider_pxm9qA"
+  ]
+}
