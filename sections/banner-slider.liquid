@@ -131,6 +131,7 @@
    </div>
  </div>
  
+ {% comment %}
  <script>
    document.addEventListener('DOMContentLoaded', function () {
      const sectionId = "{{ section.id }}";
@@ -196,7 +197,106 @@
      };
    });
  </script>
- 
+ {% endcomment %}
+
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+    const sectionId = "{{ section.id }}";
+    const slides = document.querySelectorAll(`.slide-${sectionId}`);
+    const paginationDotsContainer = document.querySelector(`.pagination-dots-${sectionId}`);
+    const swiperContainer = document.querySelector(`.swiper-${sectionId}`); // Kaydırılabilir container
+    let currentSlideIndex = 0;
+
+    // Sürükleme için değişkenler
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // İlk slaytı aktif olarak ayarla
+    if (slides.length > 0) {
+      slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+    }
+
+    slides.forEach((slide, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('pagination-dot');
+      if (index === currentSlideIndex) {
+        dot.classList.add('active');
+      }
+      dot.addEventListener('click', () => {
+        updateSlide(index);
+      });
+      paginationDotsContainer.appendChild(dot);
+    });
+
+    const paginationDots = document.querySelectorAll(`.pagination-dots-${sectionId} button`);
+
+    const updateSlide = (newIndex) => {
+      slides[currentSlideIndex].classList.remove(`active-${sectionId}`);
+      paginationDots[currentSlideIndex].classList.remove('active');
+
+      currentSlideIndex = newIndex;
+
+      slides[currentSlideIndex].classList.add(`active-${sectionId}`);
+      paginationDots[currentSlideIndex].classList.add('active');
+    };
+
+    const nextSlide = () => {
+      const newIndex = (currentSlideIndex + 1) % slides.length;
+      updateSlide(newIndex);
+    };
+
+    const prevSlide = () => {
+      const newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      updateSlide(newIndex);
+    };
+
+    const nextButton = document.getElementById(`next-${sectionId}`);
+    const prevButton = document.getElementById(`prev-${sectionId}`);
+
+    if (nextButton && prevButton) {
+      nextButton.addEventListener('click', nextSlide);
+      prevButton.addEventListener('click', prevSlide);
+    }
+
+    // Otomatik geçiş fonksiyonu (her 3 saniyede bir slide değiştir)
+    const autoSlideInterval = setInterval(nextSlide, 3000);
+
+    // Otomatik geçişi sıfırlamak için fonksiyon
+    const resetAutoSlide = () => {
+      clearInterval(autoSlideInterval);
+      setTimeout(() => {
+        setInterval(nextSlide, 3000);
+      }, 3000); // 3 saniye bekleyip tekrar başlat
+    };
+
+    // Sürükleyerek kaydırma işlevi (Drag and Scroll)
+    swiperContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      swiperContainer.classList.add('active');
+      startX = e.pageX - swiperContainer.offsetLeft;
+      scrollLeft = swiperContainer.scrollLeft;
+    });
+
+    swiperContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      swiperContainer.classList.remove('active');
+    });
+
+    swiperContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      swiperContainer.classList.remove('active');
+    });
+
+    swiperContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - swiperContainer.offsetLeft;
+      const walk = (x - startX) * 2; // Kaydırma hızı ayarı
+      swiperContainer.scrollLeft = scrollLeft - walk;
+    });
+});
+</script>
  
  {% schema %}
  {
